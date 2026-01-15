@@ -1,0 +1,21 @@
+# Core dependencies
+# Using psycopg (v3) for Python 3.13 compatibility
+psycopg[binary]>=3.3.0
+
+# Embedding and LLM
+sentence-transformers>=2.7.0
+openai>=1.30.0
+ollama>=0.4.0
+
+# Data handling
+python-dotenv==1.0.0
+numpy>=1.26.0  # Python 3.13 compatible version
+
+# Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# Document Parsing
+PyPDF2==3.0.1
+python-docx==1.1.0
