@@ -23,7 +23,7 @@ A Python REST API that classifies military documents using **Retrieval-Augmented
 ## 🏗️ Project Structure
 
 ```
-CiberTag.AI_TestClassification/
+RAG.TestClassification/
 ├── requirements.txt                 # Python dependencies
 ├── .env.example                     # Environment configuration template
 ├── config.py                        # Configuration management
