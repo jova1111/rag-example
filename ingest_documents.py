@@ -5,6 +5,7 @@ import sys
 from database.connection import DatabaseConnection
 from database.models import DocumentModel
 from embedding.embedder import DocumentEmbedder
+from embedding.chunker import DocumentChunker
 from config import Config
 
 
@@ -31,9 +32,17 @@ def ingest_documents(data_file: str = 'data/sample_documents.json'):
         print(f"✗ Error parsing JSON: {e}")
         return False
     
-    # Initialize embedder
-    print("\n📊 Initializing embedding model...")
+    # Initialize embedder and chunker
+    print("\n📊 Initializing embedding model and chunker...")
     embedder = DocumentEmbedder()
+    chunker = DocumentChunker(
+        strategy='hybrid',  # or 'semantic', 'token'
+        max_chunk_size=512,
+        overlap_size=50
+    )
+    print(f"  Chunking strategy: {chunker.strategy}")
+    print(f"  Max chunk size: {chunker.max_chunk_size} tokens")
+    print(f"  Overlap size: {chunker.overlap_size} tokens")
     
     # Connect to database
     try:
@@ -60,10 +69,21 @@ def ingest_documents(data_file: str = 'data/sample_documents.json'):
                         cursor, title, text, classification, source_unit
                     )
                     
-                    # Generate and insert embedding
-                    embedding = embedder.embed_text(text)
-                    DocumentModel.insert_embedding(
-                        cursor, document_id, text, embedding.tolist()
+                    # Chunk the document
+                    chunks = chunker.chunk_document(text)
+                    print(f"  📄 Created {len(chunks)} chunks for '{title}'")
+                    
+                    # Generate embeddings for all chunks
+                    chunk_texts = [chunk.text for chunk in chunks]
+                    embeddings = embedder.embed_batch(chunk_texts)
+                    
+                    # Insert chunks and embeddings
+                    DocumentModel.insert_chunks(
+                        cursor, document_id, chunks, embeddings.tolist(),
+                        strategy=chunker.strategy,
+                        max_chunk_size=chunker.max_chunk_size,
+                        overlap_size=chunker.overlap_size,
+                        embedding_model=Config.EMBEDDING_MODEL
                     )
                     
                     conn.commit()

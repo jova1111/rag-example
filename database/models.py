@@ -64,6 +64,77 @@ class DocumentModel:
         """, (document_id, 1, chunk_index, text_content, embedding, datetime.now()))
     
     @staticmethod
+    def insert_chunks(cursor, document_id: str, chunks: List, embeddings: list,
+                     strategy: str, max_chunk_size: int, overlap_size: int,
+                     embedding_model: str):
+        """Insert document chunks with embeddings.
+        
+        Args:
+            cursor: Database cursor
+            document_id: Document UUID
+            chunks: List of Chunk objects
+            embeddings: List of embedding vectors
+            strategy: Chunking strategy used
+            max_chunk_size: Max chunk size parameter
+            overlap_size: Overlap size parameter
+            embedding_model: Name of embedding model
+        """
+        # Insert chunking configuration
+        cursor.execute("""
+            INSERT INTO chunking_configurations 
+            (document_id, strategy, max_chunk_size, overlap_size, total_chunks)
+            VALUES (%s, %s, %s, %s, %s)
+            ON CONFLICT (document_id, strategy) DO UPDATE SET
+                max_chunk_size = EXCLUDED.max_chunk_size,
+                overlap_size = EXCLUDED.overlap_size,
+                total_chunks = EXCLUDED.total_chunks
+        """, (document_id, strategy, max_chunk_size, overlap_size, len(chunks)))
+        
+        chunk_ids = []
+        
+        # Insert each chunk
+        for chunk, embedding in zip(chunks, embeddings):
+            cursor.execute("""
+                INSERT INTO document_embeddings 
+                (document_id, page_number, chunk_index, chunk_strategy, 
+                 chunk_size, overlap_size, start_position, end_position,
+                 text_content, token_count, embedding, embedding_model)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                RETURNING embedding_id
+            """, (
+                document_id, chunk.page_number, chunk.chunk_index, strategy,
+                max_chunk_size, overlap_size, chunk.start_position, chunk.end_position,
+                chunk.text, chunk.token_count, embedding, embedding_model
+            ))
+            
+            chunk_id = cursor.fetchone()['embedding_id']
+            chunk_ids.append(chunk_id)
+        
+        # Insert overlap relationships
+        for i in range(len(chunks) - 1):
+            current_chunk = chunks[i]
+            next_chunk = chunks[i + 1]
+            
+            # Calculate overlap
+            overlap_chars = max(0, current_chunk.end_position - next_chunk.start_position)
+            
+            if overlap_chars > 0:
+                cursor.execute("""
+                    INSERT INTO chunk_relationships 
+                    (source_chunk_id, target_chunk_id, relationship_type, overlap_chars)
+                    VALUES (%s, %s, %s, %s)
+                    ON CONFLICT DO NOTHING
+                """, (chunk_ids[i], chunk_ids[i + 1], 'overlaps', overlap_chars))
+                
+                # Also add adjacent relationship
+                cursor.execute("""
+                    INSERT INTO chunk_relationships 
+                    (source_chunk_id, target_chunk_id, relationship_type, overlap_chars)
+                    VALUES (%s, %s, %s, %s)
+                    ON CONFLICT DO NOTHING
+                """, (chunk_ids[i], chunk_ids[i + 1], 'adjacent', 0))
+    
+    @staticmethod
     def search_similar_documents(cursor, query_embedding: List[float], top_k: int = 5):
         """Search for similar documents using vector similarity."""
         cursor.execute("""

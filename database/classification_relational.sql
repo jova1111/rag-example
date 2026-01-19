@@ -34,22 +34,91 @@ CREATE TABLE document_pages (
 );
 
 -- =====================================================
--- 4️⃣ Document embeddings table (pgvector)
+-- 4️⃣ Document embeddings table (pgvector) - WITH CHUNKING SUPPORT
 -- =====================================================
 CREATE TABLE document_embeddings (
     embedding_id   UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     document_id    UUID REFERENCES documents(document_id) ON DELETE CASCADE,
     page_number    INT,
-    chunk_index    INT,
-    text_content   TEXT,
-    embedding      vector(1536),  -- Adjust dimension to your embedding model
-    created_at     TIMESTAMP DEFAULT NOW()
+    chunk_index    INT NOT NULL,  -- Sequential chunk number within document
+    
+    -- Chunking metadata
+    chunk_strategy VARCHAR(50),           -- 'semantic', 'token', 'hybrid'
+    chunk_size     INT,                   -- Target size (tokens or chars)
+    overlap_size   INT DEFAULT 0,         -- Overlap with previous chunk
+    
+    -- Chunk position tracking
+    start_position INT,                   -- Starting character position in full text
+    end_position   INT,                   -- Ending character position
+    
+    -- Chunk content
+    text_content   TEXT NOT NULL,
+    token_count    INT,                   -- Actual token count of chunk
+    
+    -- Vector embedding
+    embedding      vector(768),          -- Adjust dimension to your embedding model
+    
+    -- Metadata
+    created_at     TIMESTAMP DEFAULT NOW(),
+    embedding_model VARCHAR(100),         -- Track which model created embedding
+    
+    UNIQUE (document_id, chunk_index)
 );
 
 -- Index for fast similarity search using IVF (approximate nearest neighbors)
 CREATE INDEX idx_document_embeddings_vector 
 ON document_embeddings USING ivfflat (embedding vector_l2_ops) 
 WITH (lists = 100);
+
+-- Additional indexes for chunk retrieval
+CREATE INDEX idx_document_embeddings_doc_chunk ON document_embeddings(document_id, chunk_index);
+CREATE INDEX idx_document_embeddings_strategy ON document_embeddings(chunk_strategy);
+
+-- =====================================================
+-- 4️⃣.1 Chunk relationships (for overlapping chunks)
+-- =====================================================
+CREATE TABLE chunk_relationships (
+    relationship_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    source_chunk_id UUID REFERENCES document_embeddings(embedding_id) ON DELETE CASCADE,
+    target_chunk_id UUID REFERENCES document_embeddings(embedding_id) ON DELETE CASCADE,
+    relationship_type VARCHAR(50) NOT NULL,  -- 'overlaps', 'adjacent', 'parent', 'child'
+    overlap_chars   INT,                     -- Number of overlapping characters
+    created_at      TIMESTAMP DEFAULT NOW(),
+    
+    UNIQUE (source_chunk_id, target_chunk_id, relationship_type)
+);
+
+CREATE INDEX idx_chunk_relationships_source ON chunk_relationships(source_chunk_id);
+CREATE INDEX idx_chunk_relationships_target ON chunk_relationships(target_chunk_id);
+
+-- =====================================================
+-- 4️⃣.2 Chunking configurations (track chunking strategies)
+-- =====================================================
+CREATE TABLE chunking_configurations (
+    config_id      UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    document_id    UUID REFERENCES documents(document_id) ON DELETE CASCADE,
+    strategy       VARCHAR(50) NOT NULL,  -- 'semantic', 'token', 'hybrid'
+    
+    -- Strategy parameters
+    max_chunk_size INT NOT NULL,           -- Max tokens/chars per chunk
+    overlap_size   INT DEFAULT 0,          -- Overlap between chunks
+    min_chunk_size INT DEFAULT 100,        -- Minimum chunk size
+    
+    -- Semantic chunking parameters (if applicable)
+    similarity_threshold FLOAT,            -- For semantic boundary detection
+    use_sentence_boundaries BOOLEAN DEFAULT true,
+    
+    -- Token-based parameters
+    tokenizer      VARCHAR(100),           -- e.g., 'cl100k_base', 'gpt2'
+    
+    -- Metadata
+    created_at     TIMESTAMP DEFAULT NOW(),
+    total_chunks   INT,                    -- Total chunks created
+    
+    UNIQUE (document_id, strategy)
+);
+
+CREATE INDEX idx_chunking_config_document ON chunking_configurations(document_id);
 
 -- =====================================================
 -- 5️⃣ Document classes
@@ -117,7 +186,7 @@ CREATE TABLE model_runs (
 );
 
 -- =====================================================
--- ✅ Optional indexes for faster querying
+-- ✅ Additional indexes for faster querying
 -- =====================================================
 CREATE INDEX idx_documents_source_unit ON documents(source_unit);
 CREATE INDEX idx_document_pages_document_id_page_number ON document_pages(document_id, page_number);
@@ -125,5 +194,8 @@ CREATE INDEX idx_document_embeddings_document_id ON document_embeddings(document
 CREATE INDEX idx_document_classification_class_id ON document_classification(class_id);
 
 -- =====================================================
--- Script ready for RAG + Embedding-based retrieval
+-- ✅ Schema ready for:
+--    - RAG + Embedding-based retrieval
+--    - Semantic, token-based, and hybrid chunking
+--    - Chunk overlap and relationship tracking
 -- =====================================================
