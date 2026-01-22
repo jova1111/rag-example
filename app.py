@@ -2,6 +2,7 @@
 
 import os
 import traceback
+import logging
 from contextlib import asynccontextmanager
 from typing import Optional
 from fastapi import FastAPI, File, UploadFile, HTTPException, Form
@@ -14,8 +15,11 @@ from embedding.embedder import DocumentEmbedder
 from rag.retriever import DocumentRetriever
 from rag.classifier import DocumentClassifier
 from utils.document_parser import DocumentParser
+from utils.debug_logger import setup_debug_logging, log_request
 from config import Config
 
+# Setup debug logging
+logger = setup_debug_logging(logging.DEBUG if os.getenv("DEBUG", "false").lower() == "true" else logging.INFO)
 
 # Global instances (initialized on startup)
 embedder = None
@@ -27,32 +31,32 @@ async def lifespan(app: FastAPI):
     """Lifespan context manager for startup and shutdown events."""
     global embedder, classifier
     
-    print("=" * 60)
-    print("Starting Military Document Classification API")
-    print("=" * 60)
+    logger.info("=" * 60)
+    logger.info("Starting Military Document Classification API")
+    logger.info("=" * 60)
     
     try:
-        print("\n📊 Loading embedding model...")
+        logger.info("📊 Loading embedding model...")
         embedder = DocumentEmbedder()
         
-        print("🤖 Initializing classifier...")
+        logger.info("🤖 Initializing classifier...")
         classifier = DocumentClassifier()
         
-        print("\n✓ API ready!")
-        print(f"  - Embedding model: {Config.EMBEDDING_MODEL}")
-        print(f"  - LLM: {Config.LLM_PROVIDER}/{Config.LLM_MODEL}")
-        print(f"  - Database: {Config.DB_NAME}")
-        print("=" * 60)
+        logger.info("✓ API ready!")
+        logger.info(f"  - Embedding model: {Config.EMBEDDING_MODEL}")
+        logger.info(f"  - LLM: {Config.LLM_PROVIDER}/{Config.LLM_MODEL}")
+        logger.info(f"  - Database: {Config.DB_NAME}")
+        logger.info(f"  - Debug mode: {os.getenv('DEBUG', 'false')}")
+        logger.info("=" * 60)
         
     except Exception as e:
-        print(f"\n✗ Startup failed: {e}")
-        traceback.print_exc()
+        logger.error(f"✗ Startup failed: {e}", exc_info=True)
         raise
     
     yield
     
-    # Shutdown logic (if needed in the future)
-    print("\nShutting down...")
+    # Shutdown logic
+    logger.info("Shutting down...")
 
 
 # Initialize FastAPI app
@@ -60,7 +64,8 @@ app = FastAPI(
     title="Military Document Classification API",
     description="RAG-based document classification system using PostgreSQL pgvector",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
+    debug=os.getenv("DEBUG", "false").lower() == "true"
 )
 
 
@@ -92,6 +97,7 @@ class TextClassificationRequest(BaseModel):
 @app.get("/", tags=["General"])
 async def root():
     """Root endpoint with API information."""
+    logger.debug("Root endpoint accessed")
     return {
         "name": "Military Document Classification API",
         "version": "1.0.0",
@@ -106,14 +112,18 @@ async def root():
 
 
 @app.get("/health", response_model=HealthResponse, tags=["General"])
+@log_request
 async def health_check():
     """Health check endpoint."""
     try:
         # Test database connection
+        logger.debug("Testing database connection...")
         with DatabaseConnection() as db:
             cursor = db.cursor
             cursor.execute("SELECT COUNT(*) as count FROM documents")
             doc_count = cursor.fetchone()['count']
+        
+        logger.debug(f"Database connection successful: {doc_count} documents")
         
         return HealthResponse(
             status="healthy",
@@ -122,6 +132,7 @@ async def health_check():
             llm_model=f"{Config.LLM_PROVIDER}/{Config.LLM_MODEL}"
         )
     except Exception as e:
+        logger.error(f"Health check failed: {e}", exc_info=True)
         raise HTTPException(status_code=503, detail=f"Service unhealthy: {str(e)}")
 
 
@@ -177,6 +188,7 @@ async def classify_file(
 
 
 @app.post("/classify/text", response_model=ClassificationResult, tags=["Classification"])
+@log_request
 async def classify_text(request: TextClassificationRequest):
     """Classify a document from raw text.
     
@@ -186,12 +198,15 @@ async def classify_text(request: TextClassificationRequest):
     Returns:
         Classification result with confidence and justification
     """
+    logger.debug(f"Text length: {len(request.text)}, include_context: {request.include_context}")
+    
     if not request.text or len(request.text.strip()) == 0:
         raise HTTPException(status_code=400, detail="Text cannot be empty")
     
     try:
         return await _classify_text(request.text, request.include_context)
     except Exception as e:
+        logger.error(f"Text classification error: {e}", exc_info=True)
         print(f"✗ Error: {e}")
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Classification failed: {str(e)}")
@@ -207,7 +222,7 @@ async def _classify_text(text: str, include_context: bool = False) -> Classifica
     Returns:
         Classification result
     """
-    print(f"🔍 Retrieving similar documents...")
+    logger.info("🔍 Retrieving similar documents...")
     
     # Connect to database
     with DatabaseConnection() as db:
@@ -217,24 +232,29 @@ async def _classify_text(text: str, include_context: bool = False) -> Classifica
         retriever = DocumentRetriever(cursor, embedder)
         
         # Retrieve similar documents
+        logger.debug(f"Retrieving top {Config.TOP_K_RETRIEVAL} similar documents...")
         similar_docs = retriever.retrieve_similar(text, top_k=Config.TOP_K_RETRIEVAL)
         
         if not similar_docs:
+            logger.error("No similar documents found in database")
             raise HTTPException(
                 status_code=500,
                 detail="No similar documents found. Ensure training documents are ingested."
             )
         
-        print(f"✓ Retrieved {len(similar_docs)} similar documents")
+        logger.info(f"✓ Retrieved {len(similar_docs)} similar documents")
+        logger.debug(f"Top match: {similar_docs[0].get('title')} (distance: {similar_docs[0].get('distance', 0):.4f})")
         
         # Format context for LLM
         context = retriever.format_context(similar_docs)
+        logger.debug(f"Context size: {len(context)} characters")
         
         # Classify
-        print("🤖 Classifying with LLM...")
+        logger.info("🤖 Classifying with LLM...")
         classification_result = classifier.classify(text, context)
         
-        print(f"✓ Classification: {classification_result['classification']} ({classification_result['confidence']:.2%})")
+        logger.info(f"✓ Classification: {classification_result['classification']} ({classification_result['confidence']:.2%})")
+        logger.debug(f"Justification: {classification_result['justification'][:100]}...")
         
         # Prepare retrieved documents for response if requested
         retrieved_docs_info = None
@@ -248,6 +268,7 @@ async def _classify_text(text: str, include_context: bool = False) -> Classifica
                 }
                 for doc in similar_docs
             ]
+            logger.debug(f"Including {len(retrieved_docs_info)} retrieved documents in response")
         
         return ClassificationResult(
             classification=classification_result['classification'],
@@ -262,16 +283,19 @@ async def _classify_text(text: str, include_context: bool = False) -> Classifica
 
 def main():
     """Run the FastAPI application."""
-    print("\nStarting server...")
-    print(f"Database: {Config.DB_NAME}@{Config.DB_HOST}:{Config.DB_PORT}")
-    print(f"LLM: {Config.LLM_PROVIDER}/{Config.LLM_MODEL}\n")
+    debug_mode = os.getenv("DEBUG", "false").lower() == "true"
+    
+    logger.info("\nStarting server...")
+    logger.info(f"Database: {Config.DB_NAME}@{Config.DB_HOST}:{Config.DB_PORT}")
+    logger.info(f"LLM: {Config.LLM_PROVIDER}/{Config.LLM_MODEL}")
+    logger.info(f"Debug mode: {debug_mode}\n")
     
     uvicorn.run(
         "app:app",
         host="0.0.0.0",
         port=8000,
         reload=True,
-        log_level="info"
+        log_level="debug" if debug_mode else "info"
     )
 
 

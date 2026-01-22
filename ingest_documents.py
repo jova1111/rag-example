@@ -38,7 +38,8 @@ def ingest_documents(data_file: str = 'data/sample_documents.json'):
     chunker = DocumentChunker(
         strategy='hybrid',  # or 'semantic', 'token'
         max_chunk_size=512,
-        overlap_size=50
+        overlap_size=50,
+        openai_api_key=Config.OPENAI_API_KEY  # Required for semantic strategy
     )
     print(f"  Chunking strategy: {chunker.strategy}")
     print(f"  Max chunk size: {chunker.max_chunk_size} tokens")

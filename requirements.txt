@@ -7,6 +7,12 @@ sentence-transformers>=2.7.0
 openai>=1.30.0
 ollama>=0.4.0
 
+# LangChain for chunking
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-text-splitters>=0.0.1
+langchain-experimental>=0.0.47
+
 # Data handling
 python-dotenv==1.0.0
 numpy>=1.26.0  # Python 3.13 compatible version
