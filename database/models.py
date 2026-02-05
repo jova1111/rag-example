@@ -156,6 +156,33 @@ class DocumentModel:
         return cursor.fetchall()
     
     @staticmethod
+    async def search_similar_documents_async(conn, query_embedding: List[float], top_k: int = 5):
+        """Search for similar documents using vector similarity (async version)."""
+        # Convert embedding list to string format for asyncpg vector type
+        embedding_str = '[' + ','.join(str(x) for x in query_embedding) + ']'
+        
+        query = """
+            SELECT 
+                de.document_id,
+                de.text_content,
+                d.title,
+                dc.class_name as classification,
+                dclass.confidence,
+                (de.embedding <-> $1::vector) as distance
+            FROM document_embeddings de
+            JOIN documents d ON de.document_id = d.document_id
+            JOIN document_classification dclass ON d.document_id = dclass.document_id
+            JOIN document_classes dc ON dclass.class_id = dc.class_id
+            ORDER BY de.embedding <-> $1::vector
+            LIMIT $2
+        """
+        
+        rows = await conn.fetch(query, embedding_str, top_k)
+        
+        # Convert asyncpg records to dict format
+        return [dict(row) for row in rows]
+    
+    @staticmethod
     def get_classification_rules(cursor):
         """Get all classification rules/levels."""
         cursor.execute("""

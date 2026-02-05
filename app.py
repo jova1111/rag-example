@@ -3,14 +3,14 @@
 import os
 import traceback
 import logging
+import time
 from contextlib import asynccontextmanager
 from typing import Optional
 from fastapi import FastAPI, File, UploadFile, HTTPException, Form
-from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import uvicorn
 
-from database.connection import DatabaseConnection
+from database.connection import DatabaseConnection, AsyncDatabaseConnection, get_pool, close_pool
 from embedding.embedder import DocumentEmbedder
 from rag.retriever import DocumentRetriever
 from rag.classifier import DocumentClassifier
@@ -36,27 +36,32 @@ async def lifespan(app: FastAPI):
     logger.info("=" * 60)
     
     try:
-        logger.info("📊 Loading embedding model...")
+        logger.info("Initializing database connection pool...")
+        await get_pool()
+        
+        logger.info("Loading embedding model...")
         embedder = DocumentEmbedder()
         
-        logger.info("🤖 Initializing classifier...")
+        logger.info("Initializing classifier...")
         classifier = DocumentClassifier()
         
-        logger.info("✓ API ready!")
+        logger.info("API ready!")
         logger.info(f"  - Embedding model: {Config.EMBEDDING_MODEL}")
         logger.info(f"  - LLM: {Config.LLM_PROVIDER}/{Config.LLM_MODEL}")
         logger.info(f"  - Database: {Config.DB_NAME}")
+        logger.info(f"  - Database pool: 10-100 connections")
         logger.info(f"  - Debug mode: {os.getenv('DEBUG', 'false')}")
         logger.info("=" * 60)
         
     except Exception as e:
-        logger.error(f"✗ Startup failed: {e}", exc_info=True)
+        logger.error(f"Startup failed: {e}", exc_info=True)
         raise
     
     yield
     
     # Shutdown logic
     logger.info("Shutting down...")
+    await close_pool()
 
 
 # Initialize FastAPI app
@@ -166,13 +171,13 @@ async def classify_file(
             raise HTTPException(status_code=400, detail="Empty file")
         
         # Parse document
-        print(f"\n📄 Processing: {file.filename} ({len(file_bytes)} bytes)")
+        logger.info(f"Processing file: {file.filename} ({len(file_bytes)} bytes)")
         text, format_type = DocumentParser.parse_bytes(file_bytes, file.filename)
         
         if not text or len(text.strip()) == 0:
             raise HTTPException(status_code=400, detail="No text could be extracted from file")
         
-        print(f"✓ Extracted {len(text)} characters from {format_type.upper()} file")
+        logger.info(f"Extracted {len(text)} characters from {format_type.upper()} file")
         
         # Classify document
         result = await _classify_text(text, include_context)
@@ -182,7 +187,7 @@ async def classify_file(
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        print(f"✗ Error: {e}")
+        logger.error(f"Error: {e}", exc_info=True)
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Classification failed: {str(e)}")
 
@@ -207,13 +212,13 @@ async def classify_text(request: TextClassificationRequest):
         return await _classify_text(request.text, request.include_context)
     except Exception as e:
         logger.error(f"Text classification error: {e}", exc_info=True)
-        print(f"✗ Error: {e}")
+        logger.error(f"Error: {e}", exc_info=True)
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Classification failed: {str(e)}")
 
 
 async def _classify_text(text: str, include_context: bool = False) -> ClassificationResult:
-    """Internal function to classify text.
+    """Internal function to classify text using async database operations.
     
     Args:
         text: Document text to classify
@@ -222,18 +227,23 @@ async def _classify_text(text: str, include_context: bool = False) -> Classifica
     Returns:
         Classification result
     """
-    logger.info("🔍 Retrieving similar documents...")
+    logger.info("Retrieving similar documents...")
     
-    # Connect to database
-    with DatabaseConnection() as db:
-        cursor = db.cursor
+    # Connect to async database
+    async with AsyncDatabaseConnection() as db:
+        conn = db.conn
         
         # Initialize retriever
-        retriever = DocumentRetriever(cursor, embedder)
+        retriever = DocumentRetriever(None, embedder)
         
-        # Retrieve similar documents
+        # Retrieve similar documents using async method
         logger.debug(f"Retrieving top {Config.TOP_K_RETRIEVAL} similar documents...")
-        similar_docs = retriever.retrieve_similar(text, top_k=Config.TOP_K_RETRIEVAL)
+        
+        start_time = time.perf_counter()
+        similar_docs = await retriever.retrieve_similar_async(conn, text, top_k=Config.TOP_K_RETRIEVAL)
+        elapsed_ms = (time.perf_counter() - start_time) * 1000
+        
+        logger.info(f"Retrieved similar documents in {elapsed_ms:.2f}ms")
         
         if not similar_docs:
             logger.error("No similar documents found in database")
@@ -242,7 +252,7 @@ async def _classify_text(text: str, include_context: bool = False) -> Classifica
                 detail="No similar documents found. Ensure training documents are ingested."
             )
         
-        logger.info(f"✓ Retrieved {len(similar_docs)} similar documents")
+        logger.info(f"Retrieved {len(similar_docs)} similar documents")
         logger.debug(f"Top match: {similar_docs[0].get('title')} (distance: {similar_docs[0].get('distance', 0):.4f})")
         
         # Format context for LLM
@@ -250,10 +260,15 @@ async def _classify_text(text: str, include_context: bool = False) -> Classifica
         logger.debug(f"Context size: {len(context)} characters")
         
         # Classify
-        logger.info("🤖 Classifying with LLM...")
-        classification_result = classifier.classify(text, context)
+        logger.info("Classifying with LLM...")
         
-        logger.info(f"✓ Classification: {classification_result['classification']} ({classification_result['confidence']:.2%})")
+        start_time = time.perf_counter()
+        classification_result = await classifier.classify(text, context)
+        elapsed_ms = (time.perf_counter() - start_time) * 1000
+        
+        logger.info(f"Classification completed in {elapsed_ms:.2f}ms")
+        
+        logger.info(f"Classification: {classification_result['classification']} ({classification_result['confidence']:.2%})")
         logger.debug(f"Justification: {classification_result['justification'][:100]}...")
         
         # Prepare retrieved documents for response if requested

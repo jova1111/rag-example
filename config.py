@@ -17,7 +17,9 @@ class Config:
     DB_PASSWORD = os.getenv("DB_PASSWORD", "")
     
     # LLM settings
+    
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+    OPENAI_API_ENDPOINT = os.getenv("OPENAI_API_ENDPOINT", "https://api.openai.com/v1")
     LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai")
     LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4")
     

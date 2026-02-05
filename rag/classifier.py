@@ -6,7 +6,7 @@ from typing import Dict
 from config import Config
 
 try:
-    from openai import OpenAI
+    from openai import AsyncOpenAI
     OPENAI_AVAILABLE = True
 except ImportError:
     OPENAI_AVAILABLE = False
@@ -16,7 +16,6 @@ try:
     OLLAMA_AVAILABLE = True
 except ImportError:
     OLLAMA_AVAILABLE = False
-
 
 class DocumentClassifier:
     """Classify documents using RAG and LLM."""
@@ -65,7 +64,7 @@ DO NOT invent new classification criteria.
                 raise ImportError("OpenAI package not installed. Run: pip install openai")
             if not Config.OPENAI_API_KEY:
                 raise ValueError("OPENAI_API_KEY not set in .env file")
-            self.client = OpenAI(api_key=Config.OPENAI_API_KEY)
+            self.client = AsyncOpenAI(base_url=Config.OPENAI_API_ENDPOINT, api_key=Config.OPENAI_API_KEY)
         elif self.provider == "local":
             if not OLLAMA_AVAILABLE:
                 raise ImportError("Ollama package not installed. Run: pip install ollama")
@@ -74,8 +73,8 @@ DO NOT invent new classification criteria.
         else:
             raise NotImplementedError(f"LLM provider '{self.provider}' not yet implemented")
     
-    def classify(self, document_text: str, retrieved_context: str) -> Dict:
-        """Classify a document using RAG.
+    async def classify(self, document_text: str, retrieved_context: str) -> Dict:
+        """Classify a document using RAG (async).
         
         Args:
             document_text: The document to classify.
@@ -87,9 +86,9 @@ DO NOT invent new classification criteria.
         prompt = self._build_prompt(document_text, retrieved_context)
         
         if self.provider == "openai":
-            result = self._classify_with_openai(prompt)
+            result = await self._classify_with_openai(prompt)
         elif self.provider == "local":
-            result = self._classify_with_ollama(prompt)
+            result = await self._classify_with_ollama(prompt)
         else:
             raise NotImplementedError(f"Provider {self.provider} not implemented")
         
@@ -142,8 +141,8 @@ OUTPUT FORMAT (respond ONLY with valid JSON):
 """
         return prompt
     
-    def _classify_with_openai(self, prompt: str) -> str:
-        """Call OpenAI API for classification.
+    async def _classify_with_openai(self, prompt: str) -> str:
+        """Call OpenAI API for classification (async).
         
         Args:
             prompt: The classification prompt.
@@ -152,11 +151,10 @@ OUTPUT FORMAT (respond ONLY with valid JSON):
             LLM response text.
         """
         try:
-            response = self.client.chat.completions.create(
+            response = await self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "You are a military document classification expert. Always respond with valid JSON."},
-                    {"role": "user", "content": prompt}
+                    {"role": "user", "content": "You are a military document classification expert. Always respond with valid JSON." + prompt}
                 ],
                 temperature=0.1,  # Low temperature for consistent classification
                 max_tokens=500
@@ -177,8 +175,9 @@ OUTPUT FORMAT (respond ONLY with valid JSON):
             ConnectionError: If Ollama is not accessible or model not found.
         """
         try:
-            # List available models
-            models_response = ollama.list()
+            # List available models using custom URL
+            client = ollama.Client(host=Config.OLLAMA_URL)
+            models_response = client.list()
             models_list = models_response.get('models', [])
             
             # Extract model names (handle both 'name' and 'model' keys)
@@ -205,8 +204,8 @@ OUTPUT FORMAT (respond ONLY with valid JSON):
                 f"Ollama connection test failed: {str(e)}"
             )
     
-    def _classify_with_ollama(self, prompt: str) -> str:
-        """Call Ollama API for classification.
+    async def _classify_with_ollama(self, prompt: str) -> str:
+        """Call Ollama API for classification (async).
         
         Args:
             prompt: The classification prompt.
@@ -215,7 +214,9 @@ OUTPUT FORMAT (respond ONLY with valid JSON):
             LLM response text.
         """
         try:
-            response = ollama.generate(
+            # Create async client with custom URL
+            client = ollama.AsyncClient(host=Config.OLLAMA_URL)
+            response = await client.generate(
                 model=self.model,
                 prompt=prompt,
                 options={

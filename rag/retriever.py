@@ -40,6 +40,29 @@ class DocumentRetriever:
         
         return similar_docs
     
+    async def retrieve_similar_async(self, conn, query_text: str, top_k: int = 5) -> List[Dict]:
+        """Retrieve most similar documents to the query (async version).
+        
+        Args:
+            conn: Async database connection.
+            query_text: Text to find similar documents for.
+            top_k: Number of similar documents to retrieve.
+            
+        Returns:
+            List of similar documents with metadata.
+        """
+        # Generate embedding for query (synchronous operation)
+        query_embedding = self.embedder.embed_text(query_text)
+        
+        # Search in vector database (async)
+        similar_docs = await DocumentModel.search_similar_documents_async(
+            conn, 
+            query_embedding.tolist(), 
+            top_k
+        )
+        
+        return similar_docs
+    
     def format_context(self, retrieved_docs: List[Dict]) -> str:
         """Format retrieved documents into context string for LLM.
         
