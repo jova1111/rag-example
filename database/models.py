@@ -90,8 +90,6 @@ class DocumentModel:
                 total_chunks = EXCLUDED.total_chunks
         """, (document_id, strategy, max_chunk_size, overlap_size, len(chunks)))
         
-        chunk_ids = []
-        
         # Insert each chunk
         for chunk, embedding in zip(chunks, embeddings):
             cursor.execute("""
@@ -106,33 +104,6 @@ class DocumentModel:
                 max_chunk_size, overlap_size, chunk.start_position, chunk.end_position,
                 chunk.text, chunk.token_count, embedding, embedding_model
             ))
-            
-            chunk_id = cursor.fetchone()['embedding_id']
-            chunk_ids.append(chunk_id)
-        
-        # Insert overlap relationships
-        for i in range(len(chunks) - 1):
-            current_chunk = chunks[i]
-            next_chunk = chunks[i + 1]
-            
-            # Calculate overlap
-            overlap_chars = max(0, current_chunk.end_position - next_chunk.start_position)
-            
-            if overlap_chars > 0:
-                cursor.execute("""
-                    INSERT INTO chunk_relationships 
-                    (source_chunk_id, target_chunk_id, relationship_type, overlap_chars)
-                    VALUES (%s, %s, %s, %s)
-                    ON CONFLICT DO NOTHING
-                """, (chunk_ids[i], chunk_ids[i + 1], 'overlaps', overlap_chars))
-                
-                # Also add adjacent relationship
-                cursor.execute("""
-                    INSERT INTO chunk_relationships 
-                    (source_chunk_id, target_chunk_id, relationship_type, overlap_chars)
-                    VALUES (%s, %s, %s, %s)
-                    ON CONFLICT DO NOTHING
-                """, (chunk_ids[i], chunk_ids[i + 1], 'adjacent', 0))
     
     @staticmethod
     def search_similar_documents(cursor, query_embedding: List[float], top_k: int = 5):
@@ -164,15 +135,19 @@ class DocumentModel:
         query = """
             SELECT 
                 de.document_id,
+                de.embedding_id,
                 de.text_content,
                 d.title,
-                dc.class_name as classification,
-                dclass.confidence,
-                (de.embedding <-> $1::vector) as distance
+                (de.embedding <-> $1::vector) as distance,
+                COALESCE(
+                    ARRAY_AGG(DISTINCT t.tag_name) FILTER (WHERE t.tag_name IS NOT NULL),
+                    ARRAY[]::text[]
+                ) as tags
             FROM document_embeddings de
             JOIN documents d ON de.document_id = d.document_id
-            JOIN document_classification dclass ON d.document_id = dclass.document_id
-            JOIN document_classes dc ON dclass.class_id = dc.class_id
+            LEFT JOIN chunk_tags ct ON de.embedding_id = ct.embedding_id
+            LEFT JOIN tags t ON ct.tag_id = t.tag_id
+            GROUP BY de.document_id, de.embedding_id, de.text_content, d.title, de.embedding
             ORDER BY de.embedding <-> $1::vector
             LIMIT $2
         """

@@ -97,3 +97,39 @@ class DocumentRetriever:
             )
         
         return "\n".join(context_parts)
+    
+    def format_context_with_tags(self, retrieved_docs: List[Dict]) -> str:
+        """Format retrieved chunks with tags into context string for LLM.
+        
+        Args:
+            retrieved_docs: List of retrieved chunks.
+            
+        Returns:
+            Formatted context string with tags.
+        """
+        if not retrieved_docs:
+            return "No similar chunks found."
+        
+        context_parts = []
+        for idx, doc in enumerate(retrieved_docs, 1):
+            title = doc.get('title', 'Unknown')
+            text = doc.get('text_content', '')
+            distance = doc.get('distance', 0)
+            tags = doc.get('tags', [])
+            
+            if isinstance(tags, str):
+                tags = [tags]
+            
+            # Truncate text if too long
+            if len(text) > 200:
+                text = text[:200] + "..."
+            
+            context_parts.append(
+                f"[Chunk {idx}]\n"
+                f"Document: {title}\n"
+                f"Tags: {', '.join(tags) if tags else 'None'}\n"
+                f"Similarity: {1 - distance:.3f}\n"
+                f"Content: {text}\n"
+            )
+        
+        return "\n".join(context_parts)

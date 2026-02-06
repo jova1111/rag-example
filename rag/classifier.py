@@ -2,7 +2,7 @@
 
 import json
 import re
-from typing import Dict
+from typing import Dict, List
 from config import Config
 
 try:
@@ -102,6 +102,36 @@ DO NOT invent new classification criteria.
         
         return parsed_result
     
+    async def classify_tags(self, document_text: str, retrieved_context: str, tag_context: str = "", available_tags: List[str] = None) -> Dict:
+        """Classify a document using RAG and return tags (async).
+        
+        Args:
+            document_text: The document to classify.
+            retrieved_context: Context from retrieved similar chunks.
+            tag_context: Additional context about aggregated tag frequencies.
+            available_tags: List of predefined tags that can be assigned.
+            
+        Returns:
+            Dictionary with tags, confidence, and justification.
+        """
+        prompt = self._build_tag_prompt(document_text, retrieved_context, tag_context, available_tags)
+        
+        if self.provider == "openai":
+            result = await self._classify_with_openai(prompt)
+        elif self.provider == "local":
+            result = await self._classify_with_ollama(prompt)
+        else:
+            raise NotImplementedError(f"Provider {self.provider} not implemented")
+        
+        # Parse and validate result for tags
+        parsed_result = self._parse_tag_response(result)
+        
+        # Check confidence threshold
+        if parsed_result['confidence'] < self.confidence_threshold:
+            parsed_result['justification'] += f"\n\n⚠️ Confidence ({parsed_result['confidence']:.2f}) below threshold ({self.confidence_threshold})."
+        
+        return parsed_result
+    
     def _build_prompt(self, document_text: str, retrieved_context: str) -> str:
         """Build the classification prompt for the LLM.
         
@@ -137,6 +167,59 @@ OUTPUT FORMAT (respond ONLY with valid JSON):
     "classification": "UNCLASSIFIED|CONFIDENTIAL|SECRET|TOP SECRET",
     "confidence": 0.85,
     "justification": "Brief explanation referencing retrieved documents and rules"
+}}
+"""
+        return prompt
+    
+    def _build_tag_prompt(self, document_text: str, retrieved_context: str, tag_context: str = "", available_tags: List[str] = None) -> str:
+        """Build the tag classification prompt for the LLM.
+        
+        Args:
+            document_text: The document to classify.
+            retrieved_context: Retrieved similar chunks with tags.
+            tag_context: Additional context about aggregated tags.
+            available_tags: List of predefined tags that can be assigned.
+            
+        Returns:
+            Complete prompt string.
+        """
+        # Format available tags for the prompt
+        if available_tags:
+            tags_list = "\n".join([f"- {tag}" for tag in sorted(available_tags)])
+            available_tags_section = f"""\nAVAILABLE TAGS (you MUST choose ONLY from these tags):
+{tags_list}
+"""
+        else:
+            available_tags_section = ""
+        
+        prompt = f"""You are a military document tagging specialist. Your task is to identify and assign relevant tags to a document based on:
+1. The retrieved similar chunks and their tags
+2. The aggregated tag frequencies from similar content
+3. The document content
+{available_tags_section}
+RETRIEVED SIMILAR CHUNKS (with their tags):
+{retrieved_context}
+
+{tag_context}
+
+DOCUMENT TO CLASSIFY:
+{document_text}
+
+CRITICAL INSTRUCTIONS:
+- You MUST choose tags ONLY from the available tags list above
+- DO NOT create or suggest new tags that are not in the available tags list
+- Analyze the document content carefully
+- Review the tags from retrieved similar chunks
+- Consider the aggregated tag frequencies (more frequent tags are more relevant)
+- Assign 1-5 most relevant tags that describe the document
+- Provide your confidence (0.0 to 1.0)
+- Justify your tag selection
+
+OUTPUT FORMAT (respond ONLY with valid JSON):
+{{
+    "tags": ["tag1", "tag2", "tag3"],
+    "confidence": 0.85,
+    "justification": "Brief explanation of why these tags were selected"
 }}
 """
         return prompt
@@ -286,3 +369,53 @@ OUTPUT FORMAT (respond ONLY with valid JSON):
                 'confidence': 0.0,
                 'justification': f'Failed to parse LLM response: {str(e)}'
             }
+    
+    def _parse_tag_response(self, response: str) -> Dict:
+        """Parse and validate LLM tag response.
+        
+        Args:
+            response: Raw LLM response.
+            
+        Returns:
+            Parsed and validated result dictionary with tags.
+        """
+        try:
+            # Try to extract JSON from response
+            json_match = re.search(r'\{.*\}', response, re.DOTALL)
+            if json_match:
+                result = json.loads(json_match.group())
+            else:
+                result = json.loads(response)
+            
+            # Validate required fields
+            tags = result.get('tags', [])
+            if isinstance(tags, str):
+                # If tags is a string, split by comma
+                tags = [tag.strip() for tag in tags.split(',') if tag.strip()]
+            elif not isinstance(tags, list):
+                tags = []
+            
+            confidence = float(result.get('confidence', 0.0))
+            justification = result.get('justification', 'No justification provided')
+            
+            # Ensure confidence is in valid range
+            confidence = max(0.0, min(1.0, confidence))
+            
+            # Clean up tags
+            tags = [str(tag).strip() for tag in tags if tag]
+            
+            return {
+                'tags': tags,
+                'confidence': confidence,
+                'justification': justification
+            }
+            
+        except (json.JSONDecodeError, ValueError, KeyError) as e:
+            print(f"✗ Error parsing tag response: {e}")
+            print(f"Response was: {response}")
+            return {
+                'tags': [],
+                'confidence': 0.0,
+                'justification': f'Failed to parse LLM response: {str(e)}'
+            }
+

@@ -30,6 +30,11 @@ class Config:
     EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
     EMBEDDING_DIMENSION = int(os.getenv("EMBEDDING_DIMENSION", 1536))
     
+    # Chunking settings
+    CHUNKING_STRATEGY = os.getenv("CHUNKING_STRATEGY", "hybrid")  # 'semantic', 'token', or 'hybrid'
+    MAX_CHUNK_SIZE = int(os.getenv("MAX_CHUNK_SIZE", 512))
+    CHUNK_OVERLAP_SIZE = int(os.getenv("CHUNK_OVERLAP_SIZE", 50))
+    
     # Classification settings
     CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", 0.7))
     TOP_K_RETRIEVAL = int(os.getenv("TOP_K_RETRIEVAL", 5))

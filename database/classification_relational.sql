@@ -74,22 +74,6 @@ WITH (lists = 100);
 CREATE INDEX idx_document_embeddings_doc_chunk ON document_embeddings(document_id, chunk_index);
 CREATE INDEX idx_document_embeddings_strategy ON document_embeddings(chunk_strategy);
 
--- =====================================================
--- 4️⃣.1 Chunk relationships (for overlapping chunks)
--- =====================================================
-CREATE TABLE chunk_relationships (
-    relationship_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    source_chunk_id UUID REFERENCES document_embeddings(embedding_id) ON DELETE CASCADE,
-    target_chunk_id UUID REFERENCES document_embeddings(embedding_id) ON DELETE CASCADE,
-    relationship_type VARCHAR(50) NOT NULL,  -- 'overlaps', 'adjacent', 'parent', 'child'
-    overlap_chars   INT,                     -- Number of overlapping characters
-    created_at      TIMESTAMP DEFAULT NOW(),
-    
-    UNIQUE (source_chunk_id, target_chunk_id, relationship_type)
-);
-
-CREATE INDEX idx_chunk_relationships_source ON chunk_relationships(source_chunk_id);
-CREATE INDEX idx_chunk_relationships_target ON chunk_relationships(target_chunk_id);
 
 -- =====================================================
 -- 4️⃣.2 Chunking configurations (track chunking strategies)
@@ -121,7 +105,32 @@ CREATE TABLE chunking_configurations (
 CREATE INDEX idx_chunking_config_document ON chunking_configurations(document_id);
 
 -- =====================================================
--- 5️⃣ Document classes
+-- 5️⃣ Tags table (predefined document tags)
+-- =====================================================
+CREATE TABLE tags (
+    tag_id      SERIAL PRIMARY KEY,
+    tag_name    VARCHAR(100) UNIQUE NOT NULL,
+    description TEXT,
+    category    VARCHAR(50),  -- e.g., 'Operations', 'Logistics', 'Intelligence'
+    created_at  TIMESTAMP DEFAULT NOW()
+);
+
+-- =====================================================
+-- 6️⃣ Chunk-Tags relationship (many-to-many)
+-- =====================================================
+CREATE TABLE chunk_tags (
+    chunk_tag_id  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    embedding_id  UUID REFERENCES document_embeddings(embedding_id) ON DELETE CASCADE,
+    tag_id        INT REFERENCES tags(tag_id) ON DELETE CASCADE,
+    confidence    FLOAT,  -- Confidence score for tag assignment
+    assigned_by   VARCHAR(50),  -- 'RAG', 'manual', or model name
+    assigned_at   TIMESTAMP DEFAULT NOW(),
+    
+    UNIQUE (embedding_id, tag_id)
+);
+
+-- =====================================================
+-- 7️⃣ Document classes (kept for later use)
 -- =====================================================
 CREATE TABLE document_classes (
     class_id    SERIAL PRIMARY KEY,
@@ -130,7 +139,7 @@ CREATE TABLE document_classes (
 );
 
 -- =====================================================
--- 6️⃣ Document classification results
+-- 8️⃣ Document classification results (kept for later use)
 -- =====================================================
 CREATE TABLE document_classification (
     document_id   UUID PRIMARY KEY REFERENCES documents(document_id),
@@ -141,60 +150,20 @@ CREATE TABLE document_classification (
 );
 
 -- =====================================================
--- 7️⃣ Confidentiality policies
--- =====================================================
-CREATE TABLE confidentiality_policies (
-    policy_id    VARCHAR(50) PRIMARY KEY,
-    title        TEXT,
-    description  TEXT,
-    severity     VARCHAR(20)  -- confidential, secret, etc.
-);
-
--- =====================================================
--- 8️⃣ Confidentiality assessment
--- =====================================================
-CREATE TABLE confidentiality_assessment (
-    document_id   UUID PRIMARY KEY REFERENCES documents(document_id),
-    confidential  BOOLEAN NOT NULL,
-    confidence    FLOAT,
-    assessed_by   VARCHAR(50),  -- model or analyst
-    assessed_at   TIMESTAMP DEFAULT NOW()
-);
-
--- =====================================================
--- 9️⃣ Confidentiality triggers (why confidential)
--- =====================================================
-CREATE TABLE confidentiality_triggers (
-    trigger_id     UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    document_id    UUID REFERENCES documents(document_id) ON DELETE CASCADE,
-    policy_id      VARCHAR(50) REFERENCES confidentiality_policies(policy_id),
-    trigger_type   VARCHAR(50),  -- e.g., Operational Detail
-    evidence_text  TEXT,
-    page_number    INT
-);
-
--- =====================================================
--- 10️⃣ Model runs / traceability
--- =====================================================
-CREATE TABLE model_runs (
-    run_id        UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    document_id   UUID REFERENCES documents(document_id),
-    model_name    TEXT,
-    model_version TEXT,
-    prompt_hash   TEXT,
-    run_time      TIMESTAMP DEFAULT NOW()
-);
-
--- =====================================================
 -- ✅ Additional indexes for faster querying
 -- =====================================================
 CREATE INDEX idx_documents_source_unit ON documents(source_unit);
 CREATE INDEX idx_document_pages_document_id_page_number ON document_pages(document_id, page_number);
 CREATE INDEX idx_document_embeddings_document_id ON document_embeddings(document_id);
+CREATE INDEX idx_chunk_tags_embedding_id ON chunk_tags(embedding_id);
+CREATE INDEX idx_chunk_tags_tag_id ON chunk_tags(tag_id);
+CREATE INDEX idx_tags_category ON tags(category);
 CREATE INDEX idx_document_classification_class_id ON document_classification(class_id);
 
 -- =====================================================
 -- ✅ Schema ready for:
+--    - Tag-based document classification
+--    - Many-to-many chunk-tag relationships
 --    - RAG + Embedding-based retrieval
 --    - Semantic, token-based, and hybrid chunking
 --    - Chunk overlap and relationship tracking

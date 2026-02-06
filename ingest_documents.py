@@ -2,10 +2,12 @@
 
 import json
 import sys
+import uuid
+from datetime import datetime
+from typing import List, Optional
 from database.connection import DatabaseConnection
 from database.models import DocumentModel
 from embedding.embedder import DocumentEmbedder
-from embedding.chunker import DocumentChunker
 from config import Config
 
 
@@ -32,18 +34,10 @@ def ingest_documents(data_file: str = 'data/sample_documents.json'):
         print(f"✗ Error parsing JSON: {e}")
         return False
     
-    # Initialize embedder and chunker
-    print("\n📊 Initializing embedding model and chunker...")
+    # Initialize embedder (no chunker needed - chunks come from JSON)
+    print("\n📊 Initializing embedding model...")
     embedder = DocumentEmbedder()
-    chunker = DocumentChunker(
-        strategy='hybrid',  # or 'semantic', 'token'
-        max_chunk_size=512,
-        overlap_size=50,
-        openai_api_key=Config.OPENAI_API_KEY  # Required for semantic strategy
-    )
-    print(f"  Chunking strategy: {chunker.strategy}")
-    print(f"  Max chunk size: {chunker.max_chunk_size} tokens")
-    print(f"  Overlap size: {chunker.overlap_size} tokens")
+    print(f"  Embedding model: {Config.EMBEDDING_MODEL}")
     
     # Connect to database
     try:
@@ -53,47 +47,57 @@ def ingest_documents(data_file: str = 'data/sample_documents.json'):
             
             print(f"\n📥 Ingesting documents...")
             ingested_count = 0
+            total_chunks = 0
+            total_tags = 0
             
             for idx, doc in enumerate(training_data, 1):
                 title = doc.get('title', f'Document {idx}')
-                text = doc.get('text', '')
-                classification = doc.get('classification', 'UNCLASSIFIED')
                 source_unit = doc.get('source_unit', None)
+                chunks = doc.get('chunks', [])
                 
-                if not text:
-                    print(f"  ⚠️  Skipping document {idx}: No text content")
+                if not chunks:
+                    print(f"  ⚠️  Skipping document {idx}: No chunks")
                     continue
                 
                 try:
-                    # Insert document
-                    document_id = DocumentModel.insert_document(
-                        cursor, title, text, classification, source_unit
+                    # Insert document (no classification in new structure)
+                    document_id = _insert_document_only(
+                        cursor, title, source_unit
                     )
                     
-                    # Chunk the document
-                    chunks = chunker.chunk_document(text)
-                    print(f"  📄 Created {len(chunks)} chunks for '{title}'")
+                    print(f"  📄 Processing {len(chunks)} chunks for '{title}'")
                     
-                    # Generate embeddings for all chunks
-                    chunk_texts = [chunk.text for chunk in chunks]
+                    # Process each chunk
+                    chunk_texts = [chunk['text'] for chunk in chunks]
                     embeddings = embedder.embed_batch(chunk_texts)
                     
-                    # Insert chunks and embeddings
-                    DocumentModel.insert_chunks(
-                        cursor, document_id, chunks, embeddings.tolist(),
-                        strategy=chunker.strategy,
-                        max_chunk_size=chunker.max_chunk_size,
-                        overlap_size=chunker.overlap_size,
-                        embedding_model=Config.EMBEDDING_MODEL
-                    )
+                    # Insert chunks with embeddings and tags
+                    chunk_count = 0
+                    for chunk_idx, (chunk_data, embedding) in enumerate(zip(chunks, embeddings.tolist())):
+                        # Insert chunk embedding
+                        embedding_id = _insert_chunk_embedding(
+                            cursor, document_id, chunk_idx, 
+                            chunk_data['text'], embedding
+                        )
+                        
+                        # Insert tags for this chunk
+                        chunk_tags = chunk_data.get('tags', [])
+                        for tag_name in chunk_tags:
+                            _ensure_tag_and_link(cursor, embedding_id, tag_name)
+                            total_tags += 1
+                        
+                        chunk_count += 1
                     
+                    total_chunks += chunk_count
                     conn.commit()
                     ingested_count += 1
-                    print(f"  ✓ [{ingested_count}/{len(training_data)}] {title} ({classification})")
+                    print(f"  ✓ [{ingested_count}/{len(training_data)}] {title} - {chunk_count} chunks, {len(chunk_tags) if chunks else 0} tags on last chunk")
                     
                 except Exception as e:
                     print(f"  ✗ Error ingesting '{title}': {e}")
                     conn.rollback()
+                    import traceback
+                    traceback.print_exc()
                     continue
             
             # Verify ingestion
@@ -103,16 +107,80 @@ def ingest_documents(data_file: str = 'data/sample_documents.json'):
             cursor.execute("SELECT COUNT(*) as count FROM document_embeddings")
             total_embeddings = cursor.fetchone()['count']
             
+            cursor.execute("SELECT COUNT(*) as count FROM tags")
+            unique_tags = cursor.fetchone()['count']
+            
+            cursor.execute("SELECT COUNT(*) as count FROM chunk_tags")
+            total_chunk_tags = cursor.fetchone()['count']
+            
             print(f"\n✓ Ingestion complete!")
             print(f"  - Documents in database: {total_docs}")
-            print(f"  - Embeddings in database: {total_embeddings}")
+            print(f"  - Chunks/Embeddings in database: {total_embeddings}")
+            print(f"  - Unique tags: {unique_tags}")
+            print(f"  - Chunk-tag relationships: {total_chunk_tags}")
             print(f"  - Successfully ingested: {ingested_count}/{len(training_data)}")
             
             return ingested_count > 0
             
     except Exception as e:
         print(f"\n✗ Ingestion failed: {e}")
+        import traceback
+        traceback.print_exc()
         return False
+
+
+def _insert_document_only(cursor, title: str, source_unit: Optional[str] = None):
+    """Insert a new document and return its ID."""
+    document_id = str(uuid.uuid4())
+    
+    cursor.execute("""
+        INSERT INTO documents (document_id, title, source_format, raw_file_path, 
+                              source_unit, status, created_at)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
+    """, (document_id, title, 'json', f'/data/{document_id}.json', 
+          source_unit, 'processed', datetime.now()))
+    
+    return document_id
+
+
+def _insert_chunk_embedding(cursor, document_id: str, chunk_index: int, 
+                            text_content: str, embedding: List[float]):
+    """Insert chunk embedding and return embedding_id."""
+    cursor.execute("""
+        INSERT INTO document_embeddings 
+        (document_id, chunk_index, text_content, embedding, 
+         chunk_strategy, embedding_model)
+        VALUES (%s, %s, %s, %s, %s, %s)
+        RETURNING embedding_id
+    """, (document_id, chunk_index, text_content, embedding, 
+          'predefined', Config.EMBEDDING_MODEL))
+    
+    result = cursor.fetchone()
+    return result['embedding_id']
+
+
+def _ensure_tag_and_link(cursor, embedding_id: str, tag_name: str):
+    """Ensure tag exists and link it to chunk."""
+    # Insert tag if it doesn't exist
+    cursor.execute("""
+        INSERT INTO tags (tag_name)
+        VALUES (%s)
+        ON CONFLICT (tag_name) DO NOTHING
+    """, (tag_name,))
+    
+    # Get tag_id
+    cursor.execute("""
+        SELECT tag_id FROM tags WHERE tag_name = %s
+    """, (tag_name,))
+    
+    tag_id = cursor.fetchone()['tag_id']
+    
+    # Link chunk to tag
+    cursor.execute("""
+        INSERT INTO chunk_tags (embedding_id, tag_id, confidence, assigned_by)
+        VALUES (%s, %s, %s, %s)
+        ON CONFLICT (embedding_id, tag_id) DO NOTHING
+    """, (embedding_id, tag_id, 1.0, 'training_data'))
 
 
 if __name__ == "__main__":

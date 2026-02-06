@@ -1,200 +1,672 @@
 [
   {
     "title": "Weekly Training Schedule",
-    "text": "MEMORANDUM FOR: All Alpha Company Personnel\nSUBJECT: Weekly Training Schedule - Week of 15-19 March 2026\n\n1. Purpose: This memorandum outlines the training schedule for Alpha Company for the upcoming week. All personnel are required to adhere to the specified times and locations unless otherwise directed by their chain of command.\n\n2. Training Activities:\n   - Monday, 15 March: Physical training (PT) will be conducted from 0600-0800 hours at the company PT field. Formation at 0545. Uniform: PT uniform with reflective belt. Focus will be on cardiovascular endurance and upper body strength. Following PT, all personnel must attend the mandatory safety briefing at 0900 hours in Building 243, Conference Room B. Topics include proper lifting techniques, vehicle safety, and updated fire safety procedures.\n   \n   - Tuesday, 16 March: Weapons qualification day at Range 14. First detail departs at 0700 hours. All personnel must bring their assigned weapons, eye and ear protection, and sufficient ammunition as issued by the armorer. Range safety officers will conduct preliminary safety briefings. Qualification standards per FM 3-22.9 will be strictly enforced.\n   \n   - Wednesday, 17 March: Squad tactics training in Training Area 7. Focus on movement techniques, communications procedures, and immediate action drills. Platoon leaders will conduct after-action reviews following each iteration. All squad leaders must submit their training assessments to the training NCO by 1600 hours.\n   \n   - Thursday, 18 March: Maintenance day. All equipment and vehicles require thorough inspection and preventive maintenance checks. PMCS forms must be completed and submitted to the motor sergeant by 1500 hours. Any deadlined equipment must be reported immediately.\n   \n   - Friday, 19 March: Company formation at 0900 hours for administrative announcements, awards presentations, and unit information. Following formation, platoon time for internal training and professional development.\n\n3. Administrative Notes: Weather-related cancellations will be announced via company communications channels. All personnel are reminded to maintain proper standards of appearance and conduct during all training activities.\n\n4. Point of Contact: For questions regarding this training schedule, contact 1SG Martinez at extension 4532.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Alpha Company"
+    "source_unit": "Alpha Company",
+    "chunks": [
+      {
+        "text": "MEMORANDUM FOR: All Alpha Company Personnel - Weekly Training Schedule for the week of 15-19 March 2026. This memorandum outlines the training schedule for Alpha Company. All personnel are required to adhere to the specified times and locations unless otherwise directed by their chain of command.",
+        "tags": ["Training", "Administrative"]
+      },
+      {
+        "text": "Monday, 15 March: Physical training (PT) will be conducted from 0600-0800 hours at the company PT field. Formation at 0545. Uniform: PT uniform with reflective belt. Focus will be on cardiovascular endurance and upper body strength.",
+        "tags": ["Training", "Physical Fitness"]
+      },
+      {
+        "text": "Monday, 15 March (continued): Following PT, all personnel must attend the mandatory safety briefing at 0900 hours in Building 243, Conference Room B. Topics include proper lifting techniques, vehicle safety, and updated fire safety procedures.",
+        "tags": ["Safety", "Training", "Vehicles"]
+      },
+      {
+        "text": "Tuesday, 16 March: Weapons qualification day at Range 14. First detail departs at 0700 hours. All personnel must bring their assigned weapons, eye and ear protection, and sufficient ammunition as issued by the armorer. Range safety officers will conduct preliminary safety briefings. Qualification standards per FM 3-22.9 will be strictly enforced.",
+        "tags": ["Weapons", "Training", "Safety"]
+      },
+      {
+        "text": "Wednesday, 17 March: Squad tactics training in Training Area 7. Focus on movement techniques, communications procedures, and immediate action drills. Platoon leaders will conduct after-action reviews following each iteration. All squad leaders must submit their training assessments to the training NCO by 1600 hours.",
+        "tags": ["Training", "Tactics", "Communications"]
+      },
+      {
+        "text": "Thursday, 18 March: Maintenance day. All equipment and vehicles require thorough inspection and preventive maintenance checks. PMCS forms must be completed and submitted to the motor sergeant by 1500 hours. Any deadlined equipment must be reported immediately.",
+        "tags": ["Vehicles", "Logistics", "Maintenance"]
+      },
+      {
+        "text": "Friday, 19 March: Company formation at 0900 hours for administrative announcements, awards presentations, and unit information. Following formation, platoon time for internal training and professional development.",
+        "tags": ["Administrative", "Training", "Personnel"]
+      },
+      {
+        "text": "Administrative Notes: Weather-related cancellations will be announced via company communications channels. All personnel are reminded to maintain proper standards of appearance and conduct during all training activities. Point of Contact: 1SG Martinez at extension 4532.",
+        "tags": ["Administrative", "Communications"]
+      }
+    ]
   },
   {
     "title": "Routine Maintenance Report",
-    "text": "DEPARTMENT OF THE ARMY\nMotor Pool Maintenance Report\nMonth: February 2026\nReport Date: 28 February 2026\n\n1. EXECUTIVE SUMMARY: This report documents all preventive maintenance and service activities conducted on assigned vehicles during the month of February 2026. All scheduled maintenance was completed on time and in accordance with applicable technical manuals and Army regulations.\n\n2. MAINTENANCE ACTIVITIES PERFORMED:\n   a. Oil Changes: Completed on fifteen (15) vehicles including HMMWVs (10), LMTVs (3), and support vehicles (2). All oil changes performed using approved lubricants per TM specifications. Old oil properly disposed of through contracted waste management services.\n   \n   b. Tire Services: Tire rotations performed on twelve (12) vehicles. Three (3) tires replaced due to excessive wear on vehicle M1234. Tire pressure checks conducted on all vehicles in fleet - all within acceptable ranges.\n   \n   c. Fluid Checks: Transmission fluid, brake fluid, coolant, and power steering fluid levels checked on all vehicles. Topped off as needed. No significant fluid loss or leaks detected.\n   \n   d. Filter Replacements: Air filters replaced on eight (8) vehicles. Fuel filters replaced on six (6) vehicles per scheduled intervals.\n\n3. VEHICLE STATUS: As of 28 February, all vehicles are mission capable with no deadlined equipment. Current fleet availability rate: 100%.\n\n4. UPCOMING MAINTENANCE: Next scheduled maintenance cycle begins 30 March 2026. Six (6) vehicles due for major service intervals requiring extended shop time. Parts requisitions submitted to supply section.\n\n5. ADMINISTRATIVE ACTIONS: All DA Form 2404 (Equipment Inspection and Maintenance Worksheets) completed and filed. Digital records updated in GCSS-Army. Monthly report submitted to battalion S4 per standard operating procedures.\n\nPrepared by: SFC Johnson, Motor Sergeant\nReviewed by: CPT Anderson, Company Commander",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Motor Pool"
+    "source_unit": "Motor Pool",
+    "chunks": [
+      {
+        "text": "DEPARTMENT OF THE ARMY Motor Pool Maintenance Report - Month: February 2026, Report Date: 28 February 2026. EXECUTIVE SUMMARY: This report documents all preventive maintenance and service activities conducted on assigned vehicles during the month of February 2026. All scheduled maintenance was completed on time and in accordance with applicable technical manuals and Army regulations.",
+        "tags": ["Logistics", "Vehicles", "Administrative"]
+      },
+      {
+        "text": "MAINTENANCE ACTIVITIES - Oil Changes: Completed on fifteen (15) vehicles including HMMWVs (10), LMTVs (3), and support vehicles (2). All oil changes performed using approved lubricants per TM specifications. Old oil properly disposed of through contracted waste management services.",
+        "tags": ["Vehicles", "Maintenance", "Logistics"]
+      },
+      {
+        "text": "Tire Services: Tire rotations performed on twelve (12) vehicles. Three (3) tires replaced due to excessive wear on vehicle M1234. Tire pressure checks conducted on all vehicles in fleet - all within acceptable ranges.",
+        "tags": ["Vehicles", "Maintenance"]
+      },
+      {
+        "text": "Fluid Checks and Filter Replacements: Transmission fluid, brake fluid, coolant, and power steering fluid levels checked on all vehicles. Topped off as needed. No significant fluid loss or leaks detected. Air filters replaced on eight (8) vehicles. Fuel filters replaced on six (6) vehicles per scheduled intervals.",
+        "tags": ["Vehicles", "Maintenance"]
+      },
+      {
+        "text": "VEHICLE STATUS: As of 28 February, all vehicles are mission capable with no deadlined equipment. Current fleet availability rate: 100%. UPCOMING MAINTENANCE: Next scheduled maintenance cycle begins 30 March 2026. Six (6) vehicles due for major service intervals requiring extended shop time. Parts requisitions submitted to supply section.",
+        "tags": ["Vehicles", "Logistics", "Planning"]
+      },
+      {
+        "text": "ADMINISTRATIVE ACTIONS: All DA Form 2404 (Equipment Inspection and Maintenance Worksheets) completed and filed. Digital records updated in GCSS-Army. Monthly report submitted to battalion S4 per standard operating procedures. Prepared by: SFC Johnson, Motor Sergeant. Reviewed by: CPT Anderson, Company Commander.",
+        "tags": ["Administrative", "Logistics"]
+      }
+    ]
   },
   {
     "title": "Unit Deployment Schedule",
-    "text": "BRAVO COMPANY DEPLOYMENT ORDER\nOperation: ENDURING GUARDIAN\nDTG: 281200Z FEB 2026\n\n1. SITUATION: Bravo Company, 2nd Battalion, 504th Infantry Regiment is directed to deploy to Forward Operating Base Delta in support of ongoing security operations. This deployment is in response to increased operational requirements in the assigned sector.\n\n2. MISSION: Bravo Company deploys to FOB Delta NLT 152000Z MAR 2026 to conduct security operations, maintain area stability, and support coalition force objectives for a period of 90 days.\n\n3. EXECUTION:\n   a. Concept of Operations: Movement will be conducted via ground convoy utilizing primary route SABER. Unit will depart from current location at 0400 hours on 15 March 2026 in tactical convoy formation.\n   \n   b. Movement Details:\n      - Departure Point: Current garrison location, Staging Area 3\n      - Departure Time: 0400 hours, 15 March 2026\n      - Route: Primary Route SABER with designated checkpoints\n      - Checkpoint Alpha: Grid NK 4521 7634 (anticipated 0730 hours)\n      - Checkpoint Bravo: Grid NK 5634 8923 (anticipated 1130 hours)\n      - Checkpoint Charlie: Grid NK 6234 9456 (anticipated 1500 hours)\n      - Destination: FOB Delta, Grid NK 6845 9876\n      - Estimated Time of Arrival: 1800 hours, 15 March 2026\n   \n   c. Unit Composition:\n      - Personnel Strength: 120 (12 Officers, 108 Enlisted)\n      - Vehicle Count: 25 (18 HMMWV, 4 LMTV, 3 Support Vehicles)\n      - Equipment: Standard infantry company equipment load\n   \n   d. Mission Duration: 90 days from date of arrival at FOB Delta. Redeployment date: 15 June 2026 (subject to operational requirements).\n\n4. SERVICE SUPPORT:\n   a. Logistics: All vehicles will be fully fueled prior to departure. Emergency resupply points identified along route. Medical assets include company aid station personnel and vehicle.\n   \n   b. Personnel: All personnel must have current identification, orders, and required theater-specific documentation. Medical readiness verified at 100%.\n\n5. COMMAND AND SIGNAL:\n   a. Chain of Command remains unchanged.\n   b. Communications checks every 30 minutes during movement.\n   c. Primary frequency: Secure channel 4. Alternate frequency: Secure channel 7.\n\n6. SECURITY CLASSIFICATION: This order is classified CONFIDENTIAL. Distribution limited to personnel with appropriate clearances and need-to-know.\n\nCOMMANDER: CPT Rivera\nS3 OPERATIONS OFFICER: 1LT Chen",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Bravo Company"
+    "source_unit": "Bravo Company",
+    "chunks": [
+      {
+        "text": "BRAVO COMPANY DEPLOYMENT ORDER - Operation: ENDURING GUARDIAN. Bravo Company, 2nd Battalion, 504th Infantry Regiment is directed to deploy to Forward Operating Base Delta in support of ongoing security operations. This deployment is in response to increased operational requirements in the assigned sector.",
+        "tags": ["Operations", "Deployment", "Planning"]
+      },
+      {
+        "text": "MISSION: Bravo Company deploys to FOB Delta NLT 152000Z MAR 2026 to conduct security operations, maintain area stability, and support coalition force objectives for a period of 90 days. Mission Duration: 90 days from date of arrival at FOB Delta. Redeployment date: 15 June 2026 (subject to operational requirements).",
+        "tags": ["Operations", "Planning"]
+      },
+      {
+        "text": "Movement Details: Departure Point - Current garrison location, Staging Area 3. Departure Time: 0400 hours, 15 March 2026. Route: Primary Route SABER with designated checkpoints at Grid NK 4521 7634 (0730), NK 5634 8923 (1130), NK 6234 9456 (1500). Destination: FOB Delta, Grid NK 6845 9876. Estimated Time of Arrival: 1800 hours, 15 March 2026.",
+        "tags": ["Operations", "Logistics", "Planning"]
+      },
+      {
+        "text": "Unit Composition: Personnel Strength - 120 (12 Officers, 108 Enlisted). Vehicle Count: 25 (18 HMMWV, 4 LMTV, 3 Support Vehicles). Equipment: Standard infantry company equipment load.",
+        "tags": ["Personnel", "Vehicles", "Logistics"]
+      },
+      {
+        "text": "SERVICE SUPPORT - Logistics: All vehicles will be fully fueled prior to departure. Emergency resupply points identified along route. Medical assets include company aid station personnel and vehicle. Personnel: All personnel must have current identification, orders, and required theater-specific documentation. Medical readiness verified at 100%.",
+        "tags": ["Logistics", "Medical", "Personnel"]
+      },
+      {
+        "text": "COMMAND AND SIGNAL: Chain of Command remains unchanged. Communications checks every 30 minutes during movement. Primary frequency: Secure channel 4. Alternate frequency: Secure channel 7. SECURITY CLASSIFICATION: This order is classified CONFIDENTIAL. Distribution limited to personnel with appropriate clearances and need-to-know.",
+        "tags": ["Communications", "Command and Control", "Security"]
+      }
+    ]
   },
   {
     "title": "Personnel Roster Changes",
-    "text": "MEMORANDUM FOR RECORD\nSUBJECT: Battalion Personnel Roster Updates - March 2026\nFROM: S1 Personnel Office, 2nd Battalion, 504th Infantry Regiment\nDATE: 14 March 2026\n\n1. PURPOSE: This memorandum documents personnel changes affecting battalion roster for the period 1-31 March 2026. All changes have been processed through appropriate channels and reflected in official personnel databases.\n\n2. OFFICER PERSONNEL ACTIONS:\n   a. Transfer:\n      - CPT Williams, Robert J., SSN XXX-XX-4532\n      - Previous Assignment: Alpha Company Commander\n      - New Assignment: Battalion S3 Operations Officer, effective 1 March 2026\n      - Reason: Completion of command time, advancement in career progression\n      - Replacement: CPT Morrison, Jennifer L. (inbound from Ft. Benning, arrives 28 March)\n   \n   b. Temporary Duty Assignment:\n      - 1LT Martinez, Carlos A., SSN XXX-XX-7821\n      - Current Assignment: Bravo Company Executive Officer\n      - TDY Location: Infantry Captain Career Course, Ft. Moore, Georgia\n      - TDY Duration: 1 March - 30 April 2026 (60 days)\n      - Expected Return: 1 May 2026\n      - Acting XO during absence: 1LT Thompson, David\n\n3. SENIOR ENLISTED PERSONNEL ACTIONS:\n   a. Transfer:\n      - SGT Johnson, Michael T., SSN XXX-XX-3421\n      - Previous Assignment: Squad Leader, 1st Platoon, Alpha Company\n      - New Assignment: Squad Leader, 2nd Platoon, Charlie Company, effective 15 March 2026\n      - Reason: Unit restructuring to balance experience levels across companies\n      - Sponsor assigned for in-processing at Charlie Company\n   \n   b. Promotion:\n      - SPC Rodriguez, Maria E., SSN XXX-XX-6754\n      - Current Rank: Specialist (E-4)\n      - Promoted To: Sergeant (E-5), effective 1 March 2026\n      - Promotion Authority: Battalion Commander's promotion list\n      - Assignment: Team Leader, 3rd Platoon, Headquarters Company\n      - Congratulations to newly promoted NCO\n\n4. INBOUND PERSONNEL (Expected Arrivals):\n   a. Officer:\n      - CPT Morrison, Jennifer L., reporting 28 March 2026\n      - Assignment: Alpha Company Commander\n      - Previous assignment: Company Executive Officer, 3-15 Infantry, Ft. Stewart\n      - Sponsor: 1LT Davis (Alpha Company XO)\n      - Housing: On-post quarters assigned, Building 4523\n   \n   b. Enlisted (7 personnel):\n      - PVT through SPC ranks, graduates from Infantry OSUT\n      - Reporting date: 20 March 2026\n      - Distribution: Alpha Company (2), Bravo Company (2), Charlie Company (3)\n      - In-processing schedule coordinated with company first sergeants\n\n5. OUTBOUND PERSONNEL:\n   a. Permanent Change of Station:\n      - SSG Williams, Thomas R., SSN XXX-XX-2134\n      - Current Assignment: Platoon Sergeant, 2nd Platoon, Bravo Company\n      - New Assignment: Drill Sergeant, 198th Infantry Brigade, Ft. Moore\n      - Departure Date: 25 March 2026\n      - Clearing procedures initiated, out-processing checklist distributed\n      - Replacement: SSG Anderson (inbound April 2026)\n   \n   b. Separation:\n      - SPC Brown, Christopher J., SSN XXX-XX-8965\n      - Completion of service obligation, Expiration of Term of Service (ETS)\n      - Separation Date: 31 March 2026\n      - Terminal leave: 15-31 March 2026\n      - Unit loss effective 15 March 2026\n      - Exit interview completed, transition assistance program enrollment verified\n\n6. MEDICAL STATUS CHANGES:\n   a. Temporary Profile:\n      - SGT Davis, Jennifer M. - Lower extremity injury, non-deployable for 60 days\n      - SPC Lee, Kevin T. - Upper body injury, limited duty for 30 days\n      - Both personnel remain assigned to current positions with duty limitations\n   \n   b. Return to Full Duty:\n      - SSG Taylor, Robert K. - Completed physical therapy, full duty status restored\n      - Deployable status: Yes, effective 10 March 2026\n\n7. ADMINISTRATIVE UPDATES:\n   a. Security Clearances:\n      - SGT Johnson (transferring to Charlie Company) - SECRET clearance current, expires 2028\n      - CPT Williams (new S3) - TOP SECRET clearance current, periodic reinvestigation due 2027\n      - All personnel in sensitive positions have current clearance status verified\n   \n   b. Training Certifications:\n      - All newly promoted sergeants required to complete Basic Leader Course within 12 months\n      - SGT Rodriguez enrolled in next available BLC class (May 2026 start date)\n   \n   c. Contact Information Updates:\n      - All affected personnel required to update emergency contact information in DEERS\n      - Updated contact rosters distributed to company commanders by 20 March 2026\n\n8. CURRENT BATTALION STRENGTH (as of 14 March 2026):\n   - Authorized: 642 personnel\n   - Assigned: 618 personnel\n   - Present for duty: 604 personnel\n   - Deployed/TDY: 8 personnel\n   - Medical hold: 6 personnel\n   - Overall manning: 96.3% of authorized strength\n\n9. PERSONNEL READINESS METRICS:\n   - Deployable personnel: 95.2%\n   - Security clearance compliance: 100% (all required clearances current)\n   - Medical readiness: 94.8% (dental and immunizations current)\n   - Professional education current: 92.1%\n\n10. REQUIRED ACTIONS:\n   a. Company Commanders:\n      - Acknowledge receipt of personnel changes affecting your units\n      - Update internal rosters and duty assignments accordingly\n      - Ensure sponsors contact inbound personnel within 48 hours\n      - Submit any discrepancies to S1 by 18 March 2026\n   \n   b. First Sergeants:\n      - Update company alert rosters\n      - Verify in-processing/out-processing checklists completed\n      - Coordinate billeting for inbound personnel\n      - Conduct initial counseling with newly assigned personnel\n   \n   c. S1 Personnel Office:\n      - Continue monitoring personnel actions through completion\n      - Update GCSS-Army and official personnel files\n      - Coordinate with receiving/losing units for transfers\n      - Prepare next monthly personnel status report\n\n11. POINT OF CONTACT: For questions regarding personnel actions listed in this memorandum, contact S1 Personnel Office:\n   - Officer actions: CPT Anderson, extension 4421\n   - Enlisted actions: SFC Thompson, extension 4422\n   - General inquiries: Personnel duty desk, extension 4420\n\n12. CLASSIFICATION AND HANDLING:\nThis memorandum contains personally identifiable information (PII) and is classified CONFIDENTIAL//For Official Use Only (FOUO). Distribution limited to personnel with official need to know. Safeguard in accordance with AR 380-5. Destroy by shredding when no longer needed. Do not discuss contents over non-secure communications.\n\nPrepared by:\nSFC Thompson, Personnel NCOIC\n\nReviewed by:\nCPT Anderson, S1 Adjutant\n\nApproved by:\nMAJ Collins, Battalion Executive Officer\n\nNext Update: 15 April 2026",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Battalion HQ"
+    "source_unit": "Battalion HQ",
+    "chunks": [
+      {
+        "text": "MEMORANDUM FOR RECORD - Battalion Personnel Roster Updates for March 2026. This memorandum documents personnel changes affecting battalion roster for the period 1-31 March 2026. All changes have been processed through appropriate channels and reflected in official personnel databases.",
+        "tags": ["Personnel", "Administrative"]
+      },
+      {
+        "text": "OFFICER PERSONNEL ACTIONS - Transfer: CPT Williams, Robert J. transferring from Alpha Company Commander to Battalion S3 Operations Officer, effective 1 March 2026. Reason: Completion of command time, advancement in career progression. Replacement: CPT Morrison, Jennifer L. arrives 28 March. Temporary Duty: 1LT Martinez deployed to Infantry Career Course for 60 days (1 March - 30 April).",
+        "tags": ["Personnel", "Administrative", "Training"]
+      },
+      {
+        "text": "ENLISTED PERSONNEL ACTIONS - Transfer: SGT Johnson, Michael T. moving from 1st Platoon Alpha Company to 2nd Platoon Charlie Company, effective 15 March 2026. Reason: Unit restructuring to balance experience levels. Promotion: SPC Rodriguez, Maria E. promoted to Sergeant (E-5), effective 1 March 2026. New assignment: Team Leader, 3rd Platoon, Headquarters Company.",
+        "tags": ["Personnel", "Administrative"]
+      },
+      {
+        "text": "INBOUND PERSONNEL: Officer - CPT Morrison reporting 28 March 2026 as Alpha Company Commander. Previous assignment: Company XO, 3-15 Infantry. Housing assigned in Building 4523. Enlisted: 7 personnel (PVT through SPC) reporting 20 March from Infantry OSUT. Distribution across Alpha, Bravo, and Charlie companies.",
+        "tags": ["Personnel", "Administrative"]
+      },
+      {
+        "text": "OUTBOUND PERSONNEL - PCS: SSG Williams, Thomas R. departing 25 March 2026 for Drill Sergeant duty at Ft. Moore. Separation: SPC Brown, Christopher J. completing ETS on 31 March 2026. Terminal leave: 15-31 March. Exit interview and transition assistance completed.",
+        "tags": ["Personnel", "Administrative"]
+      },
+      {
+        "text": "MEDICAL STATUS CHANGES: Temporary Profile - SGT Davis (lower extremity injury, non-deployable 60 days) and SPC Lee (upper body injury, limited duty 30 days). Return to Full Duty - SSG Taylor completed physical therapy, full duty status restored, deployable effective 10 March 2026.",
+        "tags": ["Medical", "Personnel"]
+      },
+      {
+        "text": "SECURITY CLEARANCES AND TRAINING: SGT Johnson - SECRET clearance current, expires 2028. CPT Williams - TOP SECRET clearance current, reinvestigation due 2027. All newly promoted sergeants must complete Basic Leader Course within 12 months. SGT Rodriguez enrolled in BLC starting May 2026.",
+        "tags": ["Security", "Training", "Personnel"]
+      },
+      {
+        "text": "BATTALION STRENGTH AND READINESS: Authorized: 642 personnel. Assigned: 618 (96.3%). Present for duty: 604. Deployed/TDY: 8. Medical hold: 6. Deployable personnel: 95.2%. Security clearance compliance: 100%. Medical readiness: 94.8%.",
+        "tags": ["Personnel", "Assessment", "Administrative"]
+      },
+      {
+        "text": "CLASSIFICATION: This memorandum contains personally identifiable information (PII) and is classified CONFIDENTIAL//FOUO. Distribution limited to personnel with official need to know. Safeguard in accordance with AR 380-5. Prepared by: SFC Thompson. Reviewed by: CPT Anderson. Approved by: MAJ Collins.",
+        "tags": ["Security", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Equipment Inventory List",
-    "text": "Current equipment inventory for the unit includes: 50 M4 rifles, 10 M249 SAWs, 5 M240 machine guns, night vision devices (25 units), communication radios (30 units), body armor sets (60 complete), helmets (60), and standard field equipment. All items accounted for and serviceable.",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Supply Section"
+    "source_unit": "Supply Section",
+    "chunks": [
+      {
+        "text": "Current weapons inventory for the unit includes: 50 M4 rifles, 10 M249 SAWs (Squad Automatic Weapons), and 5 M240 machine guns. All weapons are accounted for and in serviceable condition.",
+        "tags": ["Weapons", "Logistics"]
+      },
+      {
+        "text": "Night vision and communications equipment: night vision devices (25 units), communication radios (30 units). All items accounted for and serviceable.",
+        "tags": ["Communications", "Logistics"]
+      },
+      {
+        "text": "Protective equipment inventory: body armor sets (60 complete), helmets (60), and standard field equipment. All items accounted for and serviceable.",
+        "tags": ["Logistics", "Equipment"]
+      }
+    ]
   },
   {
     "title": "Operation Thunder Strike Plan",
-    "text": "NOFORN//REL TO USA, FVEY\nOPERATIONS ORDER 24-15\nOPERATION THUNDER STRIKE\nTask Force Eagle\nDTG: 101400Z MAR 2026\n\nREFERENCES:\n(a) Theater Operations Order 2026-03\n(b) Rules of Engagement Card Version 4.2\n(c) Joint Fires Coordination Procedures\n\n1. SITUATION:\n   a. Enemy Forces: Intelligence reports indicate hostile forces occupying objective area consisting of approximately 40-60 personnel equipped with small arms (AK-47 variants), light machine guns (PKM), and an estimated 4-6 RPG-7 launchers. Enemy has established defensive positions with likely fields of fire covering approaches from south and west. Pattern of life analysis suggests reduced alertness during early morning hours 0300-0500.\n   \n   b. Friendly Forces: Task Force Eagle consists of Alpha and Bravo Companies reinforced with engineer platoon, military intelligence support element, and fire support team. Adjacent units maintaining blocking positions to north and east.\n   \n   c. Attachments and Detachments: Engineer squad (obstacle clearance), MIST-A team, Forward Air Controller, Artillery FO team.\n\n2. MISSION: Task Force Eagle conducts offensive operation to SEIZE objective HAMMER (Grid NK 4567 8921) NLT 150600Z MAR 2026 to disrupt enemy operations and establish persistent observation capability in sector.\n\n3. EXECUTION:\n   a. Commander's Intent: Purpose - deny enemy use of key terrain. Method - conduct deliberate night infiltration followed by coordinated assault. End State - objective secured, observation post established, enemy forces neutralized or displaced from sector.\n   \n   b. Concept of Operations:\n      PHASE 1 (INFILTRATION): H-Hour 0300Z. Units move tactically from Line of Departure (LD) utilizing concealed routes to Assault Position TIGER (Grid NK 4512 8856). Movement conducted under noise and light discipline. Expected duration: 45 minutes.\n      \n      PHASE 2 (ASSAULT): H+45 minutes. On order, assault elements move from AP TIGER to objective HAMMER. Supporting fires suppress enemy positions. Breach teams clear obstacles. Assault force conducts coordinated assault to seize objective. Expected completion: H+3 hours (0600Z).\n      \n      PHASE 3 (CONSOLIDATION): Upon objective seizure, units establish hasty defensive positions, process captured personnel/equipment, establish observation post, and prepare for enemy counterattack. Engineers improve defensive positions. Sustainment operations begin.\n   \n   c. Fires:\n      - Artillery: Battalion 155mm howitzers provide general support. Five pre-planned targets designated A1 through A5 covering likely enemy positions and approaches. Time on Target: H-Hour to H+4. Approximately 240 rounds allocated.\n      \n      - Close Air Support: Two AH-64 Apache helicopters on station from 0330-0700Z. Primary target area: objective vicinity. Secondary mission: route security and QRF support. Tactical air controller maintains direct communications.\n      \n      - Mortars: Company 60mm mortars provide immediate suppression fires. Positioned at Grid NK 4456 8745.\n   \n   d. Intelligence: SIGINT indicates enemy radio traffic peaks 0800-1000 and 1800-2000 local. Enemy likely maintains 30% security posture during night hours. ISR assets provide pre-operation surveillance and post-operation bomb damage assessment.\n\n4. SUSTAINMENT:\n   - Medical: Role 2 medical facility prepared to receive casualties. MEDEVAC birds on 15-minute standby. Battalion aid station displaced forward to Grid NK 4398 8634.\n   - Logistics: Class III (fuel) and Class V (ammunition) resupply on order. All vehicles at 100% fuel load prior to LD crossing.\n\n5. COMMAND AND CONTROL:\n   - Command Post: TAC CP located Grid NK 4423 8712\n   - Succession of Command: TF CDR, TF XO, Alpha CO CDR\n   - Signal: Primary net - Secure Voice Freq 4. Alternate - Secure Voice Freq 7. SPOTREPS every 30 minutes.\n\n6. RULES OF ENGAGEMENT: Weapons tight until H-Hour. Upon initiation, positive identification required prior to engagement. Minimize collateral damage. No fires within 500m of identified civilian structures without ground commander approval. Captured enemy personnel processed IAW Geneva Conventions.\n\nCLASSIFICATION: SECRET\nDECLASSIFY: 15 years from date of origin\n\nCommander: LTC Harrison, Task Force Eagle\nS3: MAJ Rodriguez, Operations Officer",
-    "classification": "SECRET",
-    "source_unit": "Task Force Eagle"
+    "source_unit": "Task Force Eagle",
+    "chunks": [
+      {
+        "text": "OPERATIONS ORDER 24-15 - OPERATION THUNDER STRIKE. Task Force Eagle conducts offensive operation to SEIZE objective HAMMER (Grid NK 4567 8921) NLT 150600Z MAR 2026 to disrupt enemy operations and establish persistent observation capability in sector.",
+        "tags": ["Operations", "Planning"]
+      },
+      {
+        "text": "SITUATION - Enemy Forces: 40-60 personnel equipped with AK-47 variants, PKM machine guns, and 4-6 RPG-7 launchers. Enemy established defensive positions with fields of fire covering south and west approaches. Reduced alertness during 0300-0500 hours. Friendly Forces: Task Force Eagle consists of Alpha and Bravo Companies reinforced with engineer platoon, MI support, and fire support team.",
+        "tags": ["Intelligence", "Operations"]
+      },
+      {
+        "text": "EXECUTION - PHASE 1 (INFILTRATION): H-Hour 0300Z. Units move from Line of Departure to Assault Position TIGER under noise and light discipline. Duration: 45 minutes. PHASE 2 (ASSAULT): H+45. Assault from AP TIGER to objective HAMMER. Supporting fires suppress enemy. Completion: H+3 hours (0600Z). PHASE 3 (CONSOLIDATION): Establish defensive positions, process captured personnel, establish observation post.",
+        "tags": ["Operations", "Planning", "Tactics"]
+      },
+      {
+        "text": "FIRES SUPPORT: Artillery - Battalion 155mm howitzers, 240 rounds allocated across five pre-planned targets A1-A5. Close Air Support - Two AH-64 Apache helicopters on station 0330-0700Z. Mortars - Company 60mm mortars for immediate suppression, positioned Grid NK 4456 8745.",
+        "tags": ["Weapons", "Operations", "Planning"]
+      },
+      {
+        "text": "INTELLIGENCE AND SUSTAINMENT: SIGINT indicates enemy radio traffic peaks 0800-1000 and 1800-2000 local. Enemy maintains 30% security posture at night. Medical: Role 2 facility ready, MEDEVAC on 15-minute standby. Logistics: Full fuel loads, Class III and V resupply on order.",
+        "tags": ["Intelligence", "Medical", "Logistics"]
+      },
+      {
+        "text": "COMMAND AND CONTROL: TAC CP at Grid NK 4423 8712. Primary net - Secure Voice Freq 4. Alternate - Secure Voice Freq 7. SPOTREPS every 30 minutes. RULES OF ENGAGEMENT: Weapons tight until H-Hour. Positive ID required. Minimize collateral damage. No fires within 500m of civilian structures without approval.",
+        "tags": ["Command and Control", "Communications", "Operations"]
+      }
+    ]
   },
   {
     "title": "Intelligence Summary Report",
-    "text": "REL TO USA, FVEY\nINTELLIGENCE SUMMARY (INTSUM)\nReport Number: INTSUM-2026-0234\nDTG: 141200Z MAR 2026\nClassification: SECRET\nReporting Period: 7-14 March 2026\n\n1. EXECUTIVE SUMMARY:\nAll-source intelligence analysis indicates adversary forces in Area of Operations (AO) EAGLE conducting defensive preparations consistent with anticipation of offensive operations. Enemy battalion-strength formation reinforced with armor assets positioned in defensible terrain. Pattern analysis of logistical activities reveals sustained resupply cycle supporting extended operations. Communications intelligence provides insight into command structure reorganization aimed at improving operational coordination.\n\n2. ENEMY FORCE DISPOSITION:\n   a. Ground Forces:\n      - Sector 7 (Grid NK 4500-5500, 8000-9000): Enemy mechanized infantry battalion (estimated 550-650 personnel) with attached tank company (10-12 T-72 main battle tanks). Three company-sized defensive positions identified at Grid NK 4567 8234, NK 4876 8456, and NK 5123 8678. Positions mutually supporting with overlapping fields of fire.\n      \n      - Sector 9 (Grid NK 5500-6500, 8000-9000): Motorized rifle battalion (estimated 450-550 personnel) in prepared defensive positions. Anti-armor capabilities include AT-4 Spigot ATGM systems (minimum 6 launchers observed). Artillery support from 122mm howitzer battery positioned vicinity Grid NK 5678 8123.\n   \n   b. Air Defense:\n      - Two SA-13 GOPHER short-range air defense systems identified through SIGINT and imagery correlation. Locations: Grid NK 4923 8567 and Grid NK 5456 8234. Effective engagement range approximately 5 kilometers, altitude ceiling 3,500 meters.\n      \n      - Man-portable air defense systems (MANPADS) distributed among ground units. Primarily SA-7 GRAIL variants with limited capabilities against modern aircraft employing countermeasures.\n\n3. ENEMY LOGISTICS ASSESSMENT:\n   a. Resupply Operations: Pattern analysis of vehicle movements along Highway 7 reveals consistent convoy activity every 68-76 hours (3-day cycle with variation). Convoys typically consist of 8-12 trucks departing logistics base at Grid NK 6234 9123 during hours of darkness (2200-0400 local time). Route utilized: Highway 7 to turnoff at Grid NK 5876 8765, then secondary road to forward supply point Grid NK 5234 8456.\n   \n   b. Fuel Status: Based on operational tempo and observed vehicle activity, enemy units assessed to maintain 7-10 days fuel supply at current consumption rates. Primary fuel storage at Grid NK 5234 8456 (estimated 40,000 liters capacity). Vulnerable to precision strike due to above-ground storage configuration.\n   \n   c. Ammunition Supply: Expenditure patterns during recent training activities suggest adequate basic load for small arms and crew-served weapons. Artillery ammunition stockpile estimated at 600-800 rounds based on bunker dimensions and historical storage practices. Resupply dependent on ground transportation from depot at Grid NK 6543 9234.\n\n4. SIGNALS INTELLIGENCE (SIGINT) ANALYSIS:\n   a. Communications Networks: Enemy operates three distinct command networks:\n      - Strategic Network: HF radio linking sector to higher headquarters. Primary frequency 4.625 MHz, alternate 7.245 MHz. Schedule-based transmissions at 0600, 1200, 1800, 0000 local time.\n      \n      - Tactical Network: VHF network for battalion and company coordination. Frequency-hopping capability observed but predictable pattern identified. Primary tactical push 48.5 MHz range.\n      \n      - Administrative Network: Unencrypted transmissions for routine logistics and personnel matters. Valuable for pattern-of-life analysis and correlation with other intelligence.\n   \n   b. Communications Security: Enemy employs voice encryption on strategic and tactical networks, but operational security practices vary in effectiveness. Routine traffic analysis provides valuable intelligence despite encryption. Call signs changed weekly but predictable pattern. Authentication procedures inconsistently applied during tactical operations.\n   \n   c. Traffic Analysis Results: Significant increase in command network traffic observed 10-12 March, correlating with imagery showing increased vehicle activity. Message volume suggests coordination for major activity. Direction finding confirms location of battalion command post vicinity Grid NK 4923 8567 (confidence: high).\n\n5. IMAGERY INTELLIGENCE (IMINT) ANALYSIS:\n   a. Recent Infrastructure Development: Commercial satellite imagery dated 12 March reveals three new defensive positions under construction in Grid NK 45 square. Earthwork consistent with infantry fighting positions with overhead cover. Dimensions suggest platoon-sized occupancy for each position. Construction approximately 60% complete.\n   \n   b. Equipment Identification: Multi-spectral imagery confirms presence of armored vehicles consistent with T-72 variant main battle tanks. Thermal signatures indicate regular maintenance activities suggesting operational readiness. Vehicle spacing and camouflage discipline indicate trained unit with good tactical awareness.\n   \n   c. Change Detection Analysis: Comparison of imagery from 1 March to 14 March shows progressive defensive improvements including obstacle emplacement, fighting position development, and establishment of alternate positions. Activity consistent with unit expecting to conduct defensive operations for extended period.\n\n6. ENEMY COMMAND STRUCTURE:\nCommunications analysis combined with HUMINT reporting indicates recent reorganization of enemy command relationships. Battalion-level command structure now reports directly to brigade headquarters (previously through regimental headquarters). Change suggests effort to streamline decision-making and improve responsiveness. New battalion commander identified as LTC Volkov (biographical data in separate report). Assessment indicates competent leadership with previous combat experience.\n\n7. THREAT ASSESSMENT:\n   a. Enemy Capabilities: Enemy forces in AO EAGLE capable of conducting sustained defensive operations for period of 14-21 days given current logistics posture. Anti-armor capabilities pose moderate threat to mechanized operations. Air defense systems limit low-altitude aviation operations but vulnerable to suppression. Artillery support adequate for defensive missions but limited counterbattery capability.\n   \n   b. Enemy Vulnerabilities:\n      - Logistics dependent on single primary resupply route (Highway 7)\n      - Fuel storage vulnerable to precision strike\n      - Communications security inconsistent\n      - Limited tactical reserves identified\n      - Air defense coverage gaps in northern sector\n   \n   c. Most Likely Enemy Course of Action: Enemy will continue defensive preparations and occupy prepared positions. Limited probing actions possible to develop friendly force disposition. Withdrawal unlikely unless faced with overwhelming force or logistics situation becomes critical.\n   \n   d. Most Dangerous Enemy Course of Action: Enemy reinforces current positions with additional battalion from reserve, conducts spoiling attack to disrupt friendly force concentration, and employs chemical weapons to deny terrain (capability exists but employment assessed as low probability).\n\n8. INTELLIGENCE GAPS:\n   - Exact location and capabilities of enemy reserve forces\n   - Chemical weapons storage locations and security procedures\n   - Status of enemy electronic warfare capabilities\n   - Locations of senior leadership during operations\n   - Detailed assessment of obstacle belts and minefields\n\n9. COLLECTION PRIORITIES:\n   Priority 1: Enemy reserve force locations and readiness status\n   Priority 2: Logistics node locations and capacity assessment\n   Priority 3: Command post locations and electronic order of battle\n   Priority 4: Air defense system deployment and coverage areas\n\n10. CONFIDENCE ASSESSMENT:\nOverall confidence in this assessment: HIGH. Based on multiple intelligence sources including SIGINT (high confidence), IMINT (high confidence), HUMINT (moderate confidence - limited recent reporting), and TECHINT (moderate confidence). Key judgments corroborated by at least two independent sources.\n\n11. DISTRIBUTION: This intelligence summary is classified SECRET and releasable to USA and Five Eyes (FVEY) partners (Australia, Canada, New Zealand, United Kingdom). Distribution via intelligence channels to battalion S2 and higher. Briefings to company commanders authorized using approved briefing slides (separate document).\n\nPrepared by: MAJ Chen, S2 Intelligence Officer\nReviewed by: LTC Morrison, Battalion Commander\nNext INTSUM: 211200Z MAR 2026",
-    "classification": "SECRET",
-    "source_unit": "Intelligence Section"
+    "source_unit": "Intelligence Section",
+    "chunks": [
+      {
+        "text": "INTELLIGENCE SUMMARY (INTSUM) 2026-0234 for period 7-14 March 2026. All-source intelligence indicates adversary forces conducting defensive preparations in AO EAGLE. Enemy battalion-strength formation reinforced with armor assets positioned in defensible terrain. Sustained resupply cycle supports extended operations.",
+        "tags": ["Intelligence", "Assessment"]
+      },
+      {
+        "text": "ENEMY GROUND FORCES: Sector 7 - Mechanized infantry battalion (550-650 personnel) with tank company (10-12 T-72 tanks). Three company positions at Grids NK 4567 8234, NK 4876 8456, NK 5123 8678. Sector 9 - Motorized rifle battalion (450-550 personnel) with AT-4 Spigot ATGM systems (6+ launchers). Artillery support from 122mm battery at Grid NK 5678 8123.",
+        "tags": ["Intelligence", "Weapons", "Assessment"]
+      },
+      {
+        "text": "AIR DEFENSE: Two SA-13 GOPHER systems at Grids NK 4923 8567 and NK 5456 8234. Effective range 5km, altitude ceiling 3,500m. MANPADS distributed among ground units - primarily SA-7 GRAIL variants with limited effectiveness against modern aircraft with countermeasures.",
+        "tags": ["Intelligence", "Weapons", "Air Defense"]
+      },
+      {
+        "text": "LOGISTICS ASSESSMENT: Resupply convoys (8-12 trucks) every 68-76 hours from Grid NK 6234 9123 to forward supply point NK 5234 8456 during 2200-0400 hours via Highway 7. Fuel: 7-10 days supply at 40,000 liters capacity (Grid NK 5234 8456). Vulnerable to precision strike. Artillery ammunition: 600-800 rounds estimated.",
+        "tags": ["Intelligence", "Logistics", "Assessment"]
+      },
+      {
+        "text": "SIGNALS INTELLIGENCE: Three command networks - Strategic (HF 4.625/7.245 MHz), Tactical (VHF 48.5 MHz with frequency hopping), Administrative (unencrypted). Traffic analysis shows increased activity 10-12 March. Battalion command post located Grid NK 4923 8567 (high confidence).",
+        "tags": ["Intelligence", "Communications", "SIGINT"]
+      },
+      {
+        "text": "IMAGERY INTELLIGENCE: Three new defensive positions under construction in Grid NK 45 square (60% complete). Multi-spectral imagery confirms T-72 tanks with thermal signatures indicating operational readiness. Progressive defensive improvements include obstacles, fighting positions, and alternate positions.",
+        "tags": ["Intelligence", "Surveillance", "Assessment"]
+      },
+      {
+        "text": "THREAT ASSESSMENT: Enemy capable of 14-21 days sustained defense. Vulnerabilities - single resupply route (Highway 7), fuel storage vulnerable to strike, inconsistent communications security, limited reserves, air defense gaps in northern sector. Most likely COA: continue defensive preparations. Most dangerous COA: reinforce and conduct spoiling attack.",
+        "tags": ["Intelligence", "Assessment", "Planning"]
+      },
+      {
+        "text": "INTELLIGENCE GAPS AND PRIORITIES: Priority 1 - Enemy reserve locations. Priority 2 - Logistics node locations. Priority 3 - Command post locations. Priority 4 - Air defense deployment areas. Confidence: HIGH based on SIGINT, IMINT, HUMINT correlation.",
+        "tags": ["Intelligence", "Assessment"]
+      }
+    ]
   },
   {
     "title": "Advanced Weapons System Capabilities",
-    "text": "NOFORN\nTECHNICAL ASSESSMENT REPORT\nWeapons System: XM-25 Counter Defilade Target Engagement System\nProject Classification: SECRET\nReport Number: TAR-2026-0156\nDTG: 081500Z MAR 2026\n\n1. SYSTEM OVERVIEW:\nThe XM-25 Counter Defilade Target Engagement (CDTE) system represents a significant advancement in individual soldier lethality, providing capability to engage targets in defilade at extended ranges with precision airburst munitions. System integrates advanced fire control computer, laser rangefinder, ballistic calculator, and specialized ammunition to deliver effects against personnel and light materiel targets previously requiring crew-served weapons or indirect fire support.\n\n2. TECHNICAL SPECIFICATIONS:\n   a. Physical Characteristics:\n      - System Weight: 14 pounds (loaded with 4-round magazine)\n      - Overall Length: 29 inches\n      - Barrel Length: 18.5 inches\n      - Caliber: 25mm\n      - Magazine Capacity: 4 rounds\n      - Rate of Fire: Semi-automatic, practical rate 4-6 rounds per minute\n   \n   b. Performance Parameters:\n      - Maximum Effective Range: 600 meters (personnel targets)\n      - Maximum Range: 2,000 meters (area targets)\n      - Minimum Engagement Range: 50 meters (safety consideration)\n      - Ammunition Velocity: 210 meters per second\n      - Accuracy: 50% probability of hit against point target at 500 meters\n      - Lethality Radius: 5 meters (fragmentation effects)\n\n3. FIRE CONTROL SYSTEM:\n   a. Integrated Components:\n      - Thermal Weapon Sight (TWS): Uncooled microbolometer array providing day/night target acquisition capability. Detection range: 800 meters for man-sized target. Recognition range: 400 meters. Identification range: 200 meters.\n      \n      - Laser Rangefinder: Class 1M eye-safe laser operating at 1550nm wavelength. Range accuracy: ±1 meter out to 1,000 meters. Acquisition time: <2 seconds.\n      \n      - Ballistic Computer: Digital processor calculating firing solution based on range, cant angle, temperature, and ammunition characteristics. Solution computation time: <0.5 seconds. Automatically programs ammunition fuze for airburst at designated distance beyond target.\n      \n      - Cant Sensor: Measures weapon angle relative to gravity to compensate for non-level firing positions.\n   \n   b. Target Engagement Sequence:\n      Step 1: Operator acquires target through thermal sight\n      Step 2: Operator lases target to obtain precise range\n      Step 3: Operator designates desired detonation point (typically 0.5-3 meters beyond target)\n      Step 4: Fire control computer calculates ballistic trajectory and programs ammunition fuze\n      Step 5: Operator engages target; ammunition detonates at programmed distance\n      Total engagement time from acquisition to shot: 5-8 seconds for trained operator\n\n4. AMMUNITION TYPES:\n   a. High Explosive Airburst (HEAB):\n      - Primary fragmentation round\n      - Fuze programmable from 5-600 meters in 0.5-meter increments\n      - Fragmentation pattern optimized for personnel effects\n      - Effective casualty radius: 5 meters\n      - Packaging: 4 rounds per magazine, 32 rounds per carrying case\n   \n   b. High Explosive Point Detonating (HEPD):\n      - Impact-fuzed variant for hard targets\n      - Effective against light vehicles, structures, equipment\n      - Penetration: 50mm rolled homogeneous armor equivalent\n      - Available but not primary ammunition type\n   \n   c. Ammunition Handling:\n      - Ammunition requires climate-controlled storage (temperature range: -40°F to +160°F)\n      - Shelf life: 20 years in controlled storage\n      - Electronic components in ammunition require ESD protective measures\n      - Dud rate: <1% (observed in testing)\n\n5. OPERATIONAL TESTING RESULTS:\n   a. Phase 1 Testing (JAN-MAR 2025):\n      - 500 rounds fired across various environmental conditions\n      - System reliability: 92% (8% stoppages, all cleared by immediate action)\n      - Target hit probability: 85% at 500 meters against stationary targets\n      - Mean rounds between failure: 2,000 rounds\n   \n   b. Phase 2 Testing (JUN-SEP 2025):\n      - User evaluation by infantry soldiers (n=48)\n      - Average time to achieve proficiency: 4 hours training\n      - Operator satisfaction rating: 4.2/5.0\n      - Engagement success rate: 78% in tactical scenarios\n      - Most common operator error: incorrect range estimation (corrected by additional training)\n   \n   c. Environmental Testing:\n      - Temperature extremes: -25°F to +125°F (system operational)\n      - Humidity: 95% relative humidity (no degradation)\n      - Dust/sand: MIL-STD-810 compliance verified\n      - Water immersion: 1 meter for 30 minutes (system operational after drainage)\n      - Shock and vibration: Exceeds requirements for air-drop operations\n\n6. INTEGRATION WITH EXISTING SYSTEMS:\n   a. Soldier System Integration:\n      - Compatible with current body armor systems\n      - Can be employed from standing, kneeling, or prone positions\n      - Thermal sight image can be exported to command display systems\n      - Power source: Commercial AA batteries (4 required, 8-hour operational life)\n   \n   b. Fire Control Network:\n      - Weapon includes data port for integration with future networked fire control systems\n      - Engagement data can be recorded for after-action review\n      - Software updateable via laptop computer connection\n\n7. TRAINING REQUIREMENTS:\n   a. Operator Training Program:\n      - Duration: 40 hours (8-hour days, 5 days)\n      - Training phases: Familiarization (8hrs), Marksmanship (16hrs), Tactical Employment (12hrs), Maintenance (4hrs)\n      - Simulator training available to reduce ammunition expenditure\n      - Annual sustainment training: 8 hours\n   \n   b. Maintainer Training:\n      - Organizational-level maintenance: 16 hours\n      - Direct support maintenance: 40 hours\n      - Specialized tools required for depot-level maintenance\n\n8. MAINTENANCE REQUIREMENTS:\n   - Operator maintenance: Daily PMCS (15 minutes), cleaning after firing\n   - Organizational maintenance: Monthly bore inspection, quarterly calibration check\n   - Direct support: Annual thermal sight calibration, component replacement\n   - Critical replacement parts: Thermal sight assembly, fire control processor, trigger group\n   - Mean time between organizational maintenance: 500 rounds fired\n\n9. COMPARATIVE ANALYSIS:\nXM-25 provides capability gap filled between hand grenades (limited range, trajectory) and grenade launchers (limited precision). Superior to current M203 40mm grenade launcher in range, precision, and lethality. Provides squad-level precision engagement capability previously requiring indirect fire support or crew-served weapons. Weight penalty offset by elimination of requirement for dedicated grenadier and associated ammunition load.\n\n10. PRODUCTION AND FIELDING:\n   a. Current Status: Operational testing phase 2 completed. Results support recommendation for limited production and operational deployment.\n   \n   b. Proposed Fielding Schedule:\n      - Q3 2026: Initial production batch (500 systems)\n      - Q4 2026: Fielding to selected infantry battalions for operational assessment\n      - Q1 2027: Full-rate production decision point\n      - 2027-2029: Fielding to infantry brigades (planned acquisition: 12,500 systems)\n   \n   c. Cost Estimate:\n      - Unit cost per system: $35,000 (at full-rate production)\n      - Ammunition cost per round: $65 (HEAB), $45 (HEPD)\n      - Training cost per operator: $2,400\n      - Total program cost estimate: $650 million\n\n11. SECURITY CLASSIFICATION:\nSystem technical specifications, fire control algorithms, and detailed performance characteristics classified SECRET//NOFORN. Operational employment classified CONFIDENTIAL. Public acknowledgment of program authorized but technical details remain classified. Foreign disclosure requires SECDEF approval. Technology transfer prohibited to non-FVEY nations.\n\n12. RECOMMENDATIONS:\n   a. Approve transition to limited production pending resolution of minor technical issues\n   b. Conduct operational field testing with deploying units to validate tactical employment concepts\n   c. Develop tactics, techniques, and procedures (TTPs) for squad-level employment\n   d. Establish training pipeline and ammunition production capacity\n   e. Prepare technology protection plan for operational deployment\n\nPrepared by: Dr. Sarah Mitchell, Senior Weapons Systems Analyst\nReviewed by: COL James Patterson, Program Manager, Advanced Weapons Systems\nApproved for Limited Distribution: BG Thomas Reynolds, Commanding General, Weapons Testing Division\n\nDECLASSIFY: 10 years from date or upon public release of system, whichever occurs first",
-    "classification": "SECRET",
-    "source_unit": "Weapons Testing Division"
+    "source_unit": "Weapons Testing Division",
+    "chunks": [
+      {
+        "text": "TECHNICAL ASSESSMENT - XM-25 Counter Defilade Target Engagement System. Advanced weapon system providing capability to engage targets in defilade at extended ranges with precision airburst munitions. Integrates fire control computer, laser rangefinder, ballistic calculator, and specialized ammunition.",
+        "tags": ["Weapons", "Assessment"]
+      },
+      {
+        "text": "TECHNICAL SPECIFICATIONS: Weight - 14 pounds loaded. Length - 29 inches. Caliber - 25mm. Magazine capacity - 4 rounds. Max effective range - 600m (personnel), 2000m (area). Minimum range - 50m. Ammunition velocity - 210 m/s. Lethality radius - 5 meters.",
+        "tags": ["Weapons", "Technical"]
+      },
+      {
+        "text": "FIRE CONTROL SYSTEM: Thermal Weapon Sight (detection 800m, recognition 400m, ID 200m). Laser Rangefinder (±1m accuracy to 1000m, <2sec acquisition). Ballistic Computer (<0.5sec solution computation, automatic fuze programming). Total engagement time: 5-8 seconds for trained operator.",
+        "tags": ["Weapons", "Technical"]
+      },
+      {
+        "text": "AMMUNITION: High Explosive Airburst (HEAB) - programmable 5-600m in 0.5m increments, 5m casualty radius. High Explosive Point Detonating (HEPD) - impact-fuzed for hard targets, 50mm armor penetration. Climate-controlled storage required (-40°F to +160°F). 20-year shelf life. Dud rate <1%.",
+        "tags": ["Weapons", "Logistics"]
+      },
+      {
+        "text": "OPERATIONAL TESTING RESULTS: Phase 1 - 500 rounds fired, 92% reliability, 85% hit probability at 500m. Phase 2 - User evaluation (48 soldiers), 4 hours to proficiency, 4.2/5.0 satisfaction, 78% tactical engagement success. Environmental testing: operational -25°F to +125°F, exceeds air-drop requirements.",
+        "tags": ["Weapons", "Assessment", "Training"]
+      },
+      {
+        "text": "TRAINING REQUIREMENTS: Operator training - 40 hours (Familiarization 8hrs, Marksmanship 16hrs, Tactical Employment 12hrs, Maintenance 4hrs). Annual sustainment - 8 hours. Maintainer training - Organizational 16hrs, Direct support 40hrs. Simulator training available.",
+        "tags": ["Training", "Weapons"]
+      },
+      {
+        "text": "PRODUCTION AND FIELDING: Current status - operational testing phase 2 complete. Q3 2026 - initial production (500 systems). Q4 2026 - fielding to selected battalions. Q1 2027 - full-rate production decision. 2027-2029 - fielding to brigades (12,500 systems total). Unit cost $35,000, ammunition $65 (HEAB)/$45 (HEPD) per round.",
+        "tags": ["Weapons", "Logistics", "Planning"]
+      },
+      {
+        "text": "SECURITY CLASSIFICATION: System specifications classified SECRET//NOFORN. Operational employment CONFIDENTIAL. Foreign disclosure requires SECDEF approval. Technology transfer prohibited to non-FVEY nations. DECLASSIFY: 10 years or upon public release.",
+        "tags": ["Security", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Strategic Operations Plan - Classified",
-    "text": "TOP SECRET//SCI//NOFORN//ORCON\nSTRATEGIC OPERATIONS PLAN 2026-DELTA\nCodeword: ANVIL APEX\nSCI Control System: GAMMA-7\nDTG: 051830Z FEB 2026\n\nWARNING: This document contains codeword-level sensitive compartmented information requiring special handling and storage procedures. Unauthorized disclosure could cause EXCEPTIONALLY GRAVE damage to national security. Access restricted to personnel with appropriate SCI clearances and program indoctrination.\n\n1. STRATEGIC OVERVIEW:\nThis operations plan provides the framework for multi-domain operations designed to decisively disrupt and degrade adversary command, control, communications, computers, intelligence, surveillance and reconnaissance (C4ISR) infrastructure in designated theater of operations. Operations will be conducted across cyber, space, electromagnetic spectrum, and kinetic domains in coordinated, synchronized manner to achieve strategic objectives while maintaining attribution ambiguity where required.\n\n2. STRATEGIC OBJECTIVES:\n   a. PRIMARY: Neutralize adversary strategic command and control nodes at national and theater levels, creating decision-making paralysis within enemy leadership structure.\n   \n   b. SECONDARY: Disrupt adversary satellite communications networks, degrade early warning systems, and eliminate mobile command platforms.\n   \n   c. TERTIARY: Create conditions for follow-on conventional operations by establishing information dominance and degrading enemy integrated air defense systems.\n\n3. INTELLIGENCE PREPARATION:\n   a. SIGINT Operations: National Security Agency platforms conducting targeted collection against adversary leadership communications. Priority intercept targets include strategic-level command networks, presidential security service communications, and military general staff coordination channels. Collection platforms include overhead systems (CLASSIFIED), ground-based intercept sites, and mobile tactical assets. Processing and analysis conducted at NSA facilities with product dissemination through GAMMA-7 channels only.\n   \n   b. HUMINT Sources: Multiple human intelligence sources embedded within target country governmental and military structures. Source CARDINAL (reliability A-1) provides direct access to adversary defense ministry planning sessions. Source PHOENIX (reliability B-1) reports on strategic weapons deployment decisions. Source NIGHTINGALE (reliability A-2) has access to adversary cyber warfare development programs. All sources operating under National Clandestine Service control with exfiltration contingencies established.\n   \n   c. GEOINT Support: National Reconnaissance Office tasking dedicated imagery satellites for continuous surveillance of key facilities including adversary national military command centers, alternative command posts, strategic communications facilities, and leadership bunker complexes. Commercial satellite imagery used for pattern-of-life baseline. Synthetic aperture radar provides all-weather coverage of mobile targets.\n   \n   d. Cyber Intelligence: Joint operating with US Cyber Command and NSA Tailored Access Operations to maintain persistent access to adversary networks. Zero-day exploits held in reserve for operational employment. Network topology fully mapped with critical nodes identified for precision targeting.\n\n4. EXECUTION CONCEPT:\n   PHASE 1 - PREPARATION (D-30 to D-Day):\n   - Position special operations forces via classified insertion methods to designated areas\n   - Pre-stage cyber weapons and confirm network access\n   - Coordinate space asset positioning for optimal coverage\n   - Establish deconfliction procedures with conventional forces\n   - Conduct final intelligence updates and threat assessments\n   \n   PHASE 2 - SHAPING OPERATIONS (D-Day to D+3):\n   - Execute cyber operations against adversary C4ISR networks\n   - Employ electromagnetic warfare to disrupt enemy communications\n   - Conduct counter-space operations against adversary satellite systems\n   - Special operations forces execute direct action missions against key nodes\n   - Deploy precision strike capabilities against time-sensitive targets\n   \n   PHASE 3 - DECISIVE OPERATIONS (D+3 to D+10):\n   - Sustain pressure on adversary command and control\n   - Exploit created vulnerabilities in enemy networks\n   - Support conventional force operations with strategic-level effects\n   - Maintain information operations to shape adversary decision-making\n   \n   PHASE 4 - TRANSITION (D+10 onwards):\n   - Transfer operations to theater-level control\n   - Maintain strategic monitoring of adversary recovery efforts\n   - Prepare for potential follow-on operations\n\n5. SPECIAL OPERATIONS COMPONENT:\nJoint Special Operations Command (JSOC) elements task-organized for strategic reconnaissance, direct action against high-value targets, and foreign internal defense operations. Units include Tier-1 special mission units with authorities for operations in denied areas. Insertion methods include high-altitude low-opening parachute infiltration, submarine delivery, and other classified means. Operations coordinated through Special Operations Joint Task Force with direct reporting to National Command Authority.\n\n6. CYBER WARFARE OPERATIONS:\nUS Cyber Command executing coordinated offensive cyber operations including network penetration, data manipulation, system disruption, and information warfare. Operations employ advanced persistent threats (APTs), zero-day exploits, and custom malware specifically developed for target networks. Defensive cyber operations protect friendly networks from adversary counterattack. All operations authorized under classified presidential finding and conducted IAW international law of armed conflict as adapted to cyber domain.\n\n7. COMMAND RELATIONSHIPS:\n   - Operational Control: Commander, US Strategic Command\n   - Tactical Control: Joint Task Force Commander (designated)\n   - Supporting Commands: US Cyber Command, JSOC, NSA\n   - Coordination Required: Department of State, CIA, National Clandestine Service\n\n8. RULES OF ENGAGEMENT:\nPresidential approval required for initiation of operations. Collateral damage estimates for all kinetic strikes subject to SecDef approval. Cyber operations against critical infrastructure require NSC review. Attribution management plan in effect to maintain strategic ambiguity where designated. All operations conducted in accordance with Law of Armed Conflict and applicable executive orders.\n\n9. COMPARTMENTATION:\nThis plan is designated TOP SECRET//SCI with codeword ANVIL APEX. Access requires:\n   - TOP SECRET//SCI clearance\n   - Special background investigation completed within 5 years\n   - Program-specific indoctrination briefing\n   - Signed non-disclosure agreements on file\n   - Authenticated need-to-know determination\n\nDistribution limited to 47 specifically designated individuals. Document control numbers assigned. Reproduction prohibited without originator approval. Storage in approved SCI facilities only.\n\nDECLASSIFY: 25 years from date of origin or upon specific presidential order\nDERIVATIVE CLASSIFICATION: Multiple sources\nCLASSIFYING AUTHORITY: Joint Chiefs of Staff\n\nAPPROVED:\nGeneral Marcus T. Williams\nCommander, US Strategic Command",
-    "classification": "TOP SECRET",
-    "source_unit": "JSOC"
+    "source_unit": "JSOC",
+    "chunks": [
+      {
+        "text": "TOP SECRET//SCI//NOFORN//ORCON - STRATEGIC OPERATIONS PLAN 2026-DELTA, Codeword ANVIL APEX. Multi-domain operations to disrupt adversary C4ISR infrastructure across cyber, space, electromagnetic, and kinetic domains while maintaining attribution ambiguity.",
+        "tags": ["Operations", "Special Operations", "Planning", "Security"]
+      },
+      {
+        "text": "STRATEGIC OBJECTIVES: PRIMARY - Neutralize adversary strategic command and control nodes creating decision-making paralysis. SECONDARY - Disrupt satellite communications, degrade early warning systems, eliminate mobile command platforms. TERTIARY - Establish information dominance, degrade integrated air defenses.",
+        "tags": ["Operations", "Planning", "Intelligence"]
+      },
+      {
+        "text": "INTELLIGENCE PREPARATION: SIGINT - NSA platforms targeting leadership communications including strategic command networks. HUMINT - Sources CARDINAL (A-1), PHOENIX (B-1), NIGHTINGALE (A-2) embedded in target country. GEOINT - NRO satellite surveillance of command centers and facilities. CYBER - Persistent access to adversary networks, zero-day exploits ready.",
+        "tags": ["Intelligence", "Cyber", "Surveillance"]
+      },
+      {
+        "text": "EXECUTION PHASES: PHASE 1 (D-30 to D-Day) - Position SOF, pre-stage cyber weapons, coordinate space assets. PHASE 2 (D-Day to D+3) - Execute cyber ops, electromagnetic warfare, counter-space ops, SOF direct action. PHASE 3 (D+3 to D+10) - Sustain pressure, exploit vulnerabilities. PHASE 4 (D+10+) - Transfer to theater control.",
+        "tags": ["Operations", "Planning", "Special Operations"]
+      },
+      {
+        "text": "SPECIAL OPERATIONS: JSOC elements for strategic reconnaissance and direct action. Tier-1 units with denied area authorities. Insertion methods include HALO parachute, submarine delivery, and classified means. Direct reporting to National Command Authority.",
+        "tags": ["Special Operations", "Operations"]
+      },
+      {
+        "text": "CYBER WARFARE: US Cyber Command executing offensive operations - network penetration, data manipulation, system disruption. Advanced persistent threats, zero-day exploits, custom malware deployed. Defensive cyber ops protect friendly networks. Presidential finding authorization, LOAC compliant.",
+        "tags": ["Cyber", "Operations", "Security"]
+      },
+      {
+        "text": "COMMAND AND SECURITY: Operational Control - US Strategic Command. Supporting - US Cyber Command, JSOC, NSA. Presidential approval required. Collateral damage requires SECDEF approval. Attribution management for strategic ambiguity. Compartment access requires TS//SCI clearance, special background investigation, program indoctrination, signed NDAs.",
+        "tags": ["Command and Control", "Security", "Operations"]
+      }
+    ]
   },
   {
     "title": "HUMINT Source Report - Restricted",
-    "text": "SCI//NOFORN//ORCON\nHUMAN INTELLIGENCE SOURCE REPORT\nSource Designation: CARDINAL\nReport Control Number: HCS-2026-0847\nDissemination: EXCEPTIONALLY CONTROLLED\nDTG: 121445Z MAR 2026\n\nWARNING NOTICE: INTELLIGENCE SOURCES AND METHODS INVOLVED\nThis report contains information from human intelligence sources requiring special protection. Unauthorized disclosure could result in grave damage to national security and endanger human life. Access limited to personnel specifically indoctrinated into source protection program. DO NOT DISCUSS CONTENTS OVER UNSECURE COMMUNICATIONS.\n\n1. SOURCE ASSESSMENT:\n   a. Source Identity: CARDINAL (true name held in separate compartmented system accessible only to case officer and Chief of Station). Source is a senior advisor within target country's Ministry of Defense with direct daily access to military general staff meetings and strategic planning sessions.\n   \n   b. Access and Placement: EXCEPTIONAL. Source attends cabinet-level defense planning meetings, has direct interaction with defense minister and chief of general staff, reviews classified operational plans, and maintains personal relationships with key military commanders across all service branches.\n   \n   c. Reliability Rating: A-1 (Completely reliable source, information confirmed by independent sources). Historical accuracy rate: 95% over 37 months of reporting. Previous reporting has been corroborated by SIGINT collection and tactical outcomes.\n   \n   d. Recruitment History: Source voluntarily approached US diplomatic personnel 38 months ago citing ideological opposition to current regime policies. Extensive vetting process completed including polygraph examinations, background investigation, and trial reporting period. Source motivated by principle rather than financial compensation, though stipend provided for operational security expenses.\n\n2. INTELLIGENCE REPORTING:\n   a. Enemy Leadership Movements: Source reports that senior military leadership will conduct strategic planning conference at alternate command facility (Grid coordinates: REDACTED) from 18-22 March 2026. Attendees include defense minister, all service chiefs, and selected operational commanders. Conference agenda includes review of force modernization programs, assessment of current operational readiness, and contingency planning for regional scenarios.\n   \n   b. Operational Planning: Source provided details on planned military exercises scheduled for April-May 2026 timeframe. Exercise involves mobilization of three mechanized divisions, integration of newly fielded weapons systems, and coordination between ground and air forces. Exercise area encompasses approximately 15,000 square kilometers in northern military district. Source indicates exercise may serve as cover for actual force positioning.\n   \n   c. Logistical Vulnerabilities: Source identified critical dependencies in adversary logistics network. Primary fuel depot serving northern military district operates at 60% capacity due to infrastructure degradation. Ammunition storage facilities require significant climate control—power disruptions directly impact readiness. Rail transportation remains primary means for heavy equipment movement with only two major rail lines serving operational areas.\n   \n   d. Internal Political Dynamics: Source reports growing tension between defense ministry and interior ministry over resource allocation. Military leadership increasingly frustrated with budget constraints and delayed modernization programs. Several senior officers privately expressed concerns about operational readiness, though public statements remain supportive of current policies.\n\n3. FUTURE REPORTING EXPECTATIONS:\nSource has scheduled access to upcoming defense ministry budget review sessions and will attend strategic weapons development briefings. Source committed to providing advanced warning of any significant military mobilization or strategic-level decisions affecting regional stability.\n\n4. SOURCE PROTECTION MEASURES:\n   a. Communication Security: Source utilizes sophisticated covert communications system involving encrypted digital dead drops and steganographic image files. Communications schedule irregular to prevent pattern analysis. Emergency contact procedures established for time-sensitive information.\n   \n   b. Operational Security: Source maintains cover for status within current position. No indication of suspicion from counterintelligence services. Source has developed plausible explanation for any behavioral changes or unexplained absences. Cover story for potential exposure scenario prepared and rehearsed.\n   \n   c. Exfiltration Planning: Comprehensive exfiltration plan established and updated quarterly. Multiple exfiltration routes identified with pre-positioned resources. Emergency extraction can be executed within 72 hours of activation order. Source family members identified for concurrent exfiltration if required.\n\n5. DISTRIBUTION RESTRICTIONS:\nThis report is designated TOP SECRET//SCI with HUMINT Control System (HCS) compartmentation. Access limited to:Director of National IntelligenceDirector, CIANational Clandestine Service senior leadershipChief of Station (originating location)Source case officerFive specifically designated senior intelligence analysts\n\nTotal authorized access: 12 individuals. Document control number assigned. Reproduction prohibited. Retention of copies requires special approval. Destruction of copies must be witnessed and documented. Storage only in approved HCS facilities with enhanced security measures.\n\n6. SECURITY CLASSIFICATION RATIONALE:\nInformation in this report, if disclosed, could:\n   - Reveal intelligence sources and methods of exceptional value\n   - Endanger human life\n   - Compromise ongoing collection operations\n   - Cause exceptionally grave damage to national security\n   - Result in loss of critical intelligence access\n\n7. SOURCE HANDLING NOTES:\nNext scheduled contact: 20 March 2026. Source compensation current. Source psychological assessment indicates continued strong motivation and stable operational security awareness. No indicators of compromise detected through technical or physical surveillance countermeasures.\n\nREPORTING OFFICER: [REDACTED]\nCASE OFFICER: [REDACTED]\nCHIEF OF STATION: [REDACTED]\n\nDECLASSIFY: Source identity - Never. Operational details - 50 years from date or upon written authorization from Director of National Intelligence.\n\nDISSEMINATION CONTROL: ORCON - Originator Controls Further Dissemination\nFOREIGN DISCLOSURE: NOFORN - Not Releasable to Foreign Nationals",
-    "classification": "TOP SECRET",
-    "source_unit": "Special Intelligence Unit"
+    "source_unit": "Special Intelligence Unit",
+    "chunks": [
+      {
+        "text": "SCI//NOFORN//ORCON - HUMAN INTELLIGENCE SOURCE REPORT. Source CARDINAL - senior advisor in target Ministry of Defense with direct access to military general staff meetings and strategic planning. Reliability A-1, 95% accuracy rate over 37 months. Voluntarily approached US personnel due to ideological opposition to regime.",
+        "tags": ["Intelligence", "Security"]
+      },
+      {
+        "text": "INTELLIGENCE REPORTING: Senior military leadership strategic planning conference at alternate command facility 18-22 March 2026. Attendees include defense minister, all service chiefs, selected commanders. Agenda: force modernization, operational readiness, contingency planning for regional scenarios.",
+        "tags": ["Intelligence", "Operations"]
+      },
+      {
+        "text": "OPERATIONAL PLANNING: Planned military exercises April-May 2026. Mobilization of three mechanized divisions, newly fielded weapons integration, ground-air coordination. Exercise area 15,000 sq km in northern military district. May serve as cover for actual force positioning.",
+        "tags": ["Intelligence", "Operations"]
+      },
+      {
+        "text": "LOGISTICAL VULNERABILITIES: Primary fuel depot operates at 60% capacity due to infrastructure degradation. Ammunition storage requires climate control - power disruptions impact readiness. Rail transportation primary for heavy equipment - only two major rail lines serve operational areas.",
+        "tags": ["Intelligence", "Logistics"]
+      },
+      {
+        "text": "SOURCE PROTECTION: Encrypted digital dead drops and steganographic communications on irregular schedule. Emergency contact procedures established. Comprehensive exfiltration plan updated quarterly. 72-hour emergency extraction capability. Family members identified for concurrent exfiltration.",
+        "tags": ["Security", "Operations"]
+      },
+      {
+        "text": "DISTRIBUTION AND CLASSIFICATION: TOP SECRET//SCI with HUMINT Control System compartmentation. Access limited to 12 individuals including DNI, CIA Director, Chief of Station, case officer, designated analysts. Disclosure could endanger life, compromise operations, cause grave damage to national security. DECLASSIFY: Source identity - Never. Details - 50 years.",
+        "tags": ["Security", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Public Affairs Announcement",
-    "text": "FOR IMMEDIATE RELEASE\nPUBLIC AFFAIRS ANNOUNCEMENT\n2nd Battalion, 504th Infantry Regiment\nRelease Date: 10 March 2026\nRelease Number: PA-2026-015\n\nCOMMUNITY RELATIONS EVENT - MILITARY APPRECIATION DAY\n\nFORT LIBERTY, N.C. - The 2nd Battalion, 504th Infantry Regiment is pleased to announce its participation in the annual Military Appreciation Day community event, scheduled for Saturday, 20 March 2026. This event demonstrates our commitment to building strong relationships with the local community and providing educational opportunities for citizens to learn about military service.\n\nEVENT DETAILS:\n\nDate: Saturday, 20 March 2026\nTime: 1000-1600 hours (10:00 AM - 4:00 PM)\nLocation: Fayetteville Community Center, 125 Main Street, Fayetteville, NC\nAdmission: FREE and open to the public\nParking: Available at Community Center and adjacent municipal lot\n\nSCHEDULE OF ACTIVITIES:\n\n1000-1200: Youth Sports Clinic\nMilitary personnel will conduct a free sports clinic for youth ages 8-16, focusing on teamwork, leadership, and physical fitness. Activities include football fundamentals, basketball skills, and team-building exercises. Parents are welcome to observe. Participants should wear athletic clothing and bring water bottles. Registration on-site, no advance registration required. Maximum 50 participants.\n\n1000-1600: Static Equipment Display\nAttendees will have the opportunity to view military vehicles and equipment up close. Displays include tactical vehicles, communications equipment, and field gear. Knowledgeable soldiers will be available to answer questions and explain equipment capabilities. Photo opportunities available. Children must be supervised by adults at all times around equipment.\n\n1100-1500: Career Information Sessions\nRepresentatives from Army recruiting and career counseling will provide information about military service opportunities, educational benefits, and career paths. Topics include:\n   - Enlisted career options and specialties\n   - Officer commissioning programs (ROTC, OCS, Military Academy)\n   - Educational benefits (GI Bill, tuition assistance, college credit)\n   - Healthcare and family benefits\n   - Retirement and veteran services\nOne-on-one consultations available throughout the day. No obligation to enlist.\n\n1200-1300: Military Working Dog Demonstration\nThe Military Police detachment will conduct a demonstration of military working dog capabilities, including obedience, detection, and patrol techniques. Educational presentation about the role of military working dogs in security operations. Q&A session following demonstration.\n\n1300-1400: Drill and Ceremony Exhibition\nThe battalion drill team will perform a precision drill and ceremony exhibition showcasing military bearing, discipline, and teamwork. Approximately 30-minute performance including rifle manual and formation movements.\n\n1400-1600: Meet and Greet with Service Members\nInformal meet and greet opportunity for community members to talk with soldiers about their experiences, training, and service. Great opportunity for students considering military service or working on school projects related to military topics.\n\nSPECIAL GUESTS:\n   - Battalion Commander, LTC Harrison\n   - Command Sergeant Major, CSM Rodriguez\n   - City Mayor, Honorable Patricia Johnson\n   - Local veterans organizations representatives\n\nMEDIA COVERAGE:\nLocal media organizations are invited and encouraged to cover this community event. Media representatives should check in at the Public Affairs desk upon arrival. Interviews with military personnel and attendees can be arranged. B-roll footage opportunities available throughout the event.\n\nUNIFORM OF THE DAY:\nAll participating military personnel will wear Class A service uniforms (Army Green Service Uniform). This provides a professional appearance and helps community members easily identify military representatives.\n\nSAFETY AND SECURITY:\n   - Event is in a public venue with no security clearance required\n   - Bag checks may be conducted for safety purposes\n   - Emergency medical services on standby\n   - Lost child station located at main information desk\n   - Service animals welcome; pets not permitted except for demonstration\n\nREFRESHMENTS:\nLight refreshments and water will be available free of charge throughout the event. Food trucks will also be on site for purchase of meals and snacks.\n\nCOMMUNITY IMPACT:\nThis event is part of our ongoing commitment to community engagement and partnership. The 2nd Battalion, 504th Infantry Regiment has a proud history of service to both nation and local community. Events like this strengthen the bond between military and civilian communities and provide valuable educational opportunities for citizens of all ages.\n\nWEATHER CONTINGENCY:\nEvent will proceed rain or shine. Most activities will be conducted under cover or will move indoors if weather is inclement. Check battalion social media pages (@2-504Infantry) for any weather-related updates on day of event.\n\nVOLUNTEER OPPORTUNITIES:\nCommunity members interested in volunteering to support the event should contact the Public Affairs Office at least 48 hours in advance. Volunteers may assist with registration, directing attendees, setup, and cleanup. Great opportunity for students requiring community service hours.\n\nPHOTO AND VIDEO POLICY:\nAttendees are welcome to take photos and videos for personal use. Professional media should coordinate with Public Affairs Office. By attending this event, attendees consent to being photographed or recorded for Army public affairs purposes. Images may be used in official Army publications, websites, and social media.\n\nACCESSIBILITY:\nThe Fayetteville Community Center is fully accessible to individuals with disabilities. Wheelchair-accessible parking available. Sign language interpreters can be requested by contacting Public Affairs Office 72 hours in advance. Service animals welcome.\n\nADDITIONAL INFORMATION:\nFor more information about this event, military service opportunities, or the 2nd Battalion, 504th Infantry Regiment, please contact:\n\nPublic Affairs Office\n2nd Battalion, 504th Infantry Regiment\nPhone: (910) 555-0142\nEmail: 2-504.PAO@army.mil\nWebsite: www.504infantry.army.mil\nFacebook: @2-504Infantry\nTwitter: @2_504PIR\n\nABOUT 2ND BATTALION, 504TH INFANTRY REGIMENT:\nThe 2nd Battalion, 504th Infantry Regiment, known as the Devils in Baggy Pants is an airborne infantry battalion with a distinguished history dating back to World War II. The battalion has served with honor in numerous operations and continues to maintain high readiness standards as part of the 82nd Airborne Division. Battalion personnel regularly deploy worldwide in support of national security objectives while maintaining strong ties to the local community.\n\nThe 504th Parachute Infantry Regiment earned its nickname from German soldiers during World War II fighting in Italy, where the enemy wrote in their diary: American parachutists...devils in baggy pants...are less than 100 meters from my outpost line. I can't sleep at night; they pop up from nowhere and we never know when or how they will strike next.\n\nJOIN US:\nWe invite all community members to join us for this exciting event celebrating the strong partnership between our military and civilian communities. Whether you're considering military service, interested in learning more about the Army, or simply want to spend a fun day with family, we welcome you to Military Appreciation Day.\n\n###\n\nFor media inquiries contact:\nCPT Sarah Mitchell\nPublic Affairs Officer\n2nd Battalion, 504th Infantry Regiment\n(910) 555-0142\nsarah.m.mitchell.mil@army.mil\n\nHIGH-RESOLUTION PHOTOS AVAILABLE UPON REQUEST\n\nCLASSIFICATION: UNCLASSIFIED FOR PUBLIC RELEASE\nDISTRIBUTION: Unlimited",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Public Affairs Office"
+    "source_unit": "Public Affairs Office",
+    "chunks": [
+      {
+        "text": "PUBLIC AFFAIRS ANNOUNCEMENT - Military Appreciation Day community event, Saturday 20 March 2026, 1000-1600 hours at Fayetteville Community Center. Free admission, open to public. Demonstrates commitment to community relations and provides educational opportunities about military service.",
+        "tags": ["Public Affairs", "Administrative"]
+      },
+      {
+        "text": "EVENT ACTIVITIES: Youth Sports Clinic (1000-1200) for ages 8-16 focusing on teamwork and fitness. Static Equipment Display (1000-1600) with tactical vehicles and communications equipment. Career Information Sessions (1100-1500) covering enlisted/officer opportunities and educational benefits. Military Working Dog Demonstration (1200-1300). Drill and Ceremony Exhibition (1300-1400).",
+        "tags": ["Public Affairs", "Training"]
+      },
+      {
+        "text": "EVENT DETAILS: Special guests include Battalion Commander LTC Harrison, CSM Rodriguez, Mayor Patricia Johnson, and veteran organization representatives. Media invited for coverage. Light refreshments provided. Weather contingency - event proceeds rain or shine. Volunteer opportunities available for community service hours.",
+        "tags": ["Public Affairs", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Safety Bulletin - Winter Weather",
-    "text": "Safety bulletin for winter weather operations. All personnel must be aware of cold weather injury prevention. Symptoms of frostbite and hypothermia reviewed. Proper cold weather gear is mandatory for outdoor operations. Vehicles must be winterized. Anti-freeze levels checked. Battery maintenance critical in cold temperatures. Report all cold weather injuries immediately. Buddy system in effect for all outdoor activities.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Safety Office"
+    "source_unit": "Safety Office",
+    "chunks": [
+      {
+        "text": "Winter weather safety bulletin for all personnel. Cold weather injury prevention mandatory - frostbite and hypothermia symptoms reviewed. Proper cold weather gear required for outdoor operations.",
+        "tags": ["Safety", "Medical"]
+      },
+      {
+        "text": "Vehicle winterization procedures: anti-freeze levels checked, battery maintenance critical in cold temperatures. Report all cold weather injuries immediately. Buddy system in effect for all outdoor activities.",
+        "tags": ["Safety", "Vehicles"]
+      }
+    ]
   },
   {
     "title": "Tactical Movement Plan - Restricted",
-    "text": "Tactical movement plan for company-level operation. Departure time 2200 hours. Movement formation: tactical column with 50-meter spacing. Night vision required. Communication plan: radio silence except emergency. Checkpoints established every 5 kilometers. Expected enemy contact low probability first 15km, increases thereafter. Reaction drills rehearsed. Medical evacuation plan includes ground and air assets. Movement ends at assembly area Viking by 0400 hours.",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Delta Company"
+    "source_unit": "Delta Company",
+    "chunks": [
+      {
+        "text": "Tactical movement plan for company operation. Departure 2200 hours in tactical column with 50-meter spacing. Night vision required. Communication plan: radio silence except emergency.",
+        "tags": ["Operations", "Planning", "Communications"]
+      },
+      {
+        "text": "Checkpoints established every 5 kilometers. Enemy contact probability low first 15km, increases thereafter. Reaction drills rehearsed. Medical evacuation plan includes ground and air assets. Movement ends assembly area Viking by 0400 hours.",
+        "tags": ["Operations", "Medical", "Planning"]
+      }
+    ]
   },
   {
     "title": "Cyber Operations Summary",
-    "text": "TOP SECRET//SCI//NOFORN//ORCON\nCYBER OPERATIONS SUMMARY\nOperation: DIGITAL FORTRESS\nClassification: TOP SECRET//SI//TK//NOFORN\nControl System: EXCEPTIONALLY CONTROLLED INFORMATION\nDTG: 131600Z MAR 2026\nReport Period: 1-13 March 2026\n\nWARNING NOTICE - INTELLIGENCE SOURCES AND METHODS INVOLVED\nThis document contains information about sensitive cyber operations, intelligence sources, and methods. Unauthorized disclosure will cause EXCEPTIONALLY GRAVE damage to national security, compromise ongoing operations, and potentially endanger personnel. Access requires TOP SECRET//SCI clearance with specific cyber operations indoctrination. ORCON restrictions apply - originator controls further dissemination.\n\n1. EXECUTIVE SUMMARY:\nCyber Warfare Task Force has successfully maintained persistent access to priority target networks and expanded collection capabilities during reporting period. Offensive cyber operations achieved significant effects against adversary command and control systems while defensive operations thwarted multiple sophisticated intrusion attempts. All operations conducted in accordance with presidential authorization and applicable rules of engagement for cyber warfare.\n\n2. OFFENSIVE CYBER OPERATIONS:\n   a. Network Penetration Operations:\n      TARGET SET ALPHA (Adversary Military Networks):\n      - Maintained persistent access to adversary general staff planning networks through advanced persistent threat (APT) designated BLACKSHADOW\n      - Access provides real-time visibility into strategic planning, force deployment orders, and operational communications\n      - Exfiltrated 2.3 terabytes of data including operational plans, intelligence assessments, and communications traffic\n      - Implants remain undetected based on adversary network defensive activities monitoring\n      - Access confirmed through multiple independent technical indicators\n      - Backup access methods pre-positioned in case of primary method detection\n      \n      TARGET SET BRAVO (Adversary Intelligence Services):\n      - Established new access to counterintelligence database using zero-day exploit (ZDE-2026-047) developed by NSA Tailored Access Operations\n      - Database contains records of adversary intelligence operations, source handling, and collection priorities\n      - Access enables identification of adversary intelligence officers, recruitment targets, and operational methods\n      - Collection coordinated with CIA Counterintelligence Center for maximum operational value\n      - Technical collection infrastructure includes encrypted satellite exfiltration pathway\n      \n      TARGET SET CHARLIE (Adversary Defense Industry):\n      - Penetrated networks of three major defense contractors supporting adversary weapons development programs\n      - Obtained technical specifications for next-generation fighter aircraft propulsion system\n      - Acquired testing data for advanced surface-to-air missile system (SA-X-23 program)\n      - Collected organizational information revealing supply chain vulnerabilities\n      - Intelligence disseminated to Defense Intelligence Agency and Air Force Intelligence\n   \n   b. Data Exfiltration Operations:\n      - Total data exfiltrated during period: 8.7 terabytes\n      - Categories: Strategic planning documents (35%), technical specifications (25%), communications intelligence (20%), personnel records (12%), other (8%)\n      - Exfiltration conducted using encrypted channels mimicking legitimate network traffic to avoid detection\n      - No indicators of adversary awareness of data loss observed\n      - All exfiltrated data processed through sanitization to remove forensic artifacts\n      - High-value intelligence forwarded to national-level intelligence consumers within 48 hours\n\n3. ATTRIBUTION AND FORENSIC ANALYSIS:\n   a. Adversary Attribution Confirmed:\n      - Technical analysis of malware recovered from allied networks confirms adversary nation-state sponsorship\n      - Code signing certificates match known adversary cyber operations unit\n      - Command and control infrastructure traced to IP space previously associated with adversary intelligence services\n      - Malware functionality consistent with adversary operational requirements and previous campaigns\n      - Correlation with HUMINT reporting confirms attribution at high confidence level\n   \n   b. Threat Actor Profiling:\n      - Primary adversary cyber unit designated APT-47 (also known as VENOMOUS SPIDER in intelligence community)\n      - Unit assessed to be subordinate to adversary military intelligence directorate\n      - Estimated personnel strength: 200-300 specialized cyber operators\n      - Primary targets: US military networks, defense contractors, critical infrastructure\n      - Tactics, techniques, and procedures (TTPs) documented and shared with defensive teams\n      - Indicators of compromise (IOCs) distributed to threat intelligence sharing networks\n\n4. OFFENSIVE CYBER EFFECTS:\n   a. Capabilities Employed:\n      - Zero-Day Exploits: 7 separate vulnerabilities used during reporting period\n        * Windows server privilege escalation (ZDE-2026-047)\n        * Cisco router backdoor (ZDE-2026-051)\n        * Oracle database injection (ZDE-2026-053)\n        * Network appliance authentication bypass (ZDE-2026-059)\n        * Industrial control system vulnerability (ZDE-2026-062)\n        * VPN gateway code execution (ZDE-2026-065)\n        * Mobile device management remote access (ZDE-2026-068)\n      \n      - Custom Malware Platforms:\n        * NIGHTHAWK: Advanced persistent threat framework for long-term access\n        * PHANTOM: Stealthy data exfiltration tool with encryption and anti-forensics\n        * VIPER: Network reconnaissance and lateral movement capability\n        * SLEDGEHAMMER: Destructive payload for critical systems (held in reserve)\n        * CHAMELEON: Polymorphic malware evading signature-based detection\n      \n   b. Operational Effects Achieved:\n      - Disrupted adversary military exercise coordination (8-10 March)\n      - Degraded adversary air defense radar network for 6-hour period (12 March)\n      - Denied adversary access to satellite communications system (limited duration, 4 hours)\n      - Manipulated logistics database causing supply chain confusion (effects ongoing)\n      - All effects reversible and conducted below threshold for armed conflict attribution\n\n5. DEFENSIVE CYBER OPERATIONS:\n   a. Threat Hunting Operations:\n      - Conducted proactive threat hunting across 247 DOD networks\n      - Discovered and remediated 14 previously undetected intrusions\n      - Identified 3 new adversary malware variants not in threat intelligence databases\n      - Analyzed adversary TTPs and updated defensive signatures\n      - Shared threat intelligence with CISA and private sector partners\n   \n   b. Intrusion Detection and Response:\n      - Detected 1,247 intrusion attempts during reporting period (23% increase from previous period)\n      - Successfully blocked 1,239 intrusion attempts (99.4% effectiveness)\n      - 8 successful intrusions (all detected within 4 hours, contained and remediated)\n      - Average time from detection to containment: 2.3 hours\n      - No confirmed data loss from detected intrusions\n      - After-action analysis completed for each incident\n   \n   c. Advanced Intrusion Detection:\n      - Machine learning analytics identified anomalous behavior indicating insider threat (investigated by counterintelligence)\n      - Behavioral analysis detected adversary lateral movement attempts\n      - Network traffic analysis revealed command and control beaconing\n      - Endpoint detection and response (EDR) tools identified fileless malware execution\n      - Security Operations Center (SOC) analysts investigated 3,421 alerts, 247 required elevated response\n\n6. TECHNICAL OPERATIONS SUPPORT:\n   a. Vulnerability Research:\n      - Discovered 12 new zero-day vulnerabilities in commercial and military systems\n      - 7 vulnerabilities weaponized for offensive operations\n      - 5 vulnerabilities disclosed to vendors for patching (after operational value assessment)\n      - Vulnerability research targets prioritized based on adversary system usage\n   \n   b. Tool Development:\n      - Completed development of SHADOWBLADE malware framework (next-generation persistent access)\n      - Enhanced PHANTOM exfiltration tool with improved stealth capabilities\n      - Developed DEFENDER automated incident response platform\n      - Created custom analytics for detecting adversary APT-47 tactics\n\n7. COORDINATION WITH NATIONAL PARTNERS:\n   a. NSA Coordination:\n      - Daily coordination calls between Cyber Warfare Task Force and NSA Tailored Access Operations\n      - Shared access to target networks to avoid duplication and maximize coverage\n      - NSA provided SIGINT cueing for cyber operations targeting\n      - Technical support from NSA for advanced cryptanalysis and traffic analysis\n   \n   b. US Cyber Command Integration:\n      - Operations conducted under USCYBERCOM operational control\n      - Coordinated cyber fires with kinetic operations planning\n      - Shared defensive threat intelligence through USCYBERCOM Cyber Mission Force\n      - Participated in joint cyber exercises and training\n   \n   c. Interagency Collaboration:\n      - CIA provided HUMINT on adversary cyber capabilities and personnel\n      - DIA received technical intelligence on adversary weapons systems\n      - FBI shared domestic threat intelligence on adversary cyber operations in US\n      - Department of Homeland Security coordinated critical infrastructure protection\n\n8. COALITION PARTNER OPERATIONS:\n   a. Five Eyes Cyber Cooperation:\n      - Shared threat intelligence with UK GCHQ, Australian ASD, Canadian CSE, New Zealand GCSB\n      - Coordinated operations to avoid deconfliction issues\n      - Received partner intelligence on adversary infrastructure in their regions\n      - Joint development of defensive tools and techniques\n   \n   b. Information Sharing Restrictions:\n      - Operational details shared only with specifically authorized Five Eyes personnel\n      - Sources and methods protection paramount - limited disclosure even to close allies\n      - Technical indicators shared more broadly through formal sharing mechanisms\n\n9. LEGAL AND POLICY COMPLIANCE:\n   a. Authorization Framework:\n      - All offensive operations conducted under classified presidential finding\n      - Operations comply with Law of Armed Conflict as adapted to cyber domain\n      - Legal review conducted for each target prior to operation initiation\n      - Collateral effects assessed and approved at appropriate level\n      - Congressional oversight committees notified per statutory requirements\n   \n   b. Rules of Engagement:\n      - Cyber ROE approved by SECDEF and coordinated with NSC\n      - Proportionality assessments conducted for all offensive actions\n      - Discrimination between military and civilian targets maintained\n      - Reversibility of effects considered in operational planning\n      - Attribution management to maintain strategic ambiguity where required\n\n10. PERSONNEL AND TRAINING:\n   - Task Force manning: 87% of authorized (123 of 141 positions filled)\n   - Critical skill gaps: Advanced malware developers (3 positions), forensic analysts (2 positions)\n   - Training conducted: Advanced persistent threat tactics (24 personnel), defensive cyber operations (31 personnel)\n   - Certifications obtained: Offensive Security Certified Professional (4), GIAC Reverse Engineering Malware (3)\n   - Retention challenges: Private sector competition for cyber talent remains significant issue\n\n11. FUTURE OPERATIONS:\n   a. Planned Operations (Next 30 Days):\n      - Expand access to Target Set Delta (adversary space systems networks)\n      - Conduct vulnerability assessment of adversary critical infrastructure\n      - Deploy enhanced collection implants to existing access points\n      - Test new offensive capabilities in isolated lab environment\n   \n   b. Capability Development:\n      - Quantum-resistant encryption implementation for C2 communications\n      - Artificial intelligence-enhanced threat hunting platform\n      - Automated cyber mission planning tool\n      - Improved attribution masking techniques\n\n12. SECURITY CLASSIFICATION GUIDANCE:\nThis summary is classified TOP SECRET//SCI//NOFORN. Specific portions contain Special Intelligence (SI) from SIGINT sources and Talent Keyhole (TK) from overhead imagery. All technical details of cyber operations, zero-day exploits, and access methods are codeword protected under Operation DIGITAL FORTRESS compartment.\n\nAccess Requirements:\n   - TOP SECRET//SCI clearance current within 5 years\n   - Special background investigation\n   - DIGITAL FORTRESS compartment indoctrination\n   - Cyber operations specific training completion\n   - Signed non-disclosure agreements\n   - Authenticated need-to-know\n\nDissemination Control: ORCON - Originator (Cyber Warfare Task Force Commander) must approve any further dissemination. Contact Task Force Security Manager for dissemination requests.\n\nStorage: Approved SCI facilities only. Unauthorized removal from SCIF prohibited. Electronic copies on classified networks only with proper labeling.\n\nDestruction: Shred using approved cross-cut shredder or burn. Document control officer must witness and log destruction.\n\nDECLASSIFY: 50 years from date of origin or upon specific written authorization from Director of National Intelligence\n\nPrepared by: [REDACTED], Senior Cyber Operations Analyst\nReviewed by: [REDACTED], Deputy Task Force Commander\nApproved by: COL Marcus Williams, Cyber Warfare Task Force Commander\n\nNext Summary Report: 15 April 2026",
-    "classification": "TOP SECRET",
-    "source_unit": "Cyber Warfare Task Force"
+    "source_unit": "Cyber Warfare Task Force",
+    "chunks": [
+      {
+        "text": "TOP SECRET//SCI//NOFORN - CYBER OPERATIONS SUMMARY, Operation DIGITAL FORTRESS, 1-13 March 2026. Cyber Warfare Task Force maintained persistent access to priority networks and expanded collection. Offensive ops achieved effects against adversary C2 systems. Defensive ops thwarted sophisticated intrusions.",
+        "tags": ["Cyber", "Operations", "Security"]
+      },
+      {
+        "text": "OFFENSIVE OPERATIONS - Network Penetration: TARGET ALPHA - Persistent access to military networks via APT BLACKSHADOW, 2.3TB exfiltrated including operational plans. TARGET BRAVO - New access to counterintelligence database using zero-day exploit ZDE-2026-047. TARGET CHARLIE - Penetrated three defense contractors, obtained fighter propulsion specs and SA-X-23 missile data.",
+        "tags": ["Cyber", "Intelligence", "Operations"]
+      },
+      {
+        "text": "DATA EXFILTRATION: Total 8.7TB exfiltrated - Strategic planning (35%), technical specs (25%), communications intelligence (20%), personnel records (12%). Encrypted channels mimicking legitimate traffic. No indicators of adversary awareness. High-value intelligence forwarded within 48 hours.",
+        "tags": ["Cyber", "Intelligence"]
+      },
+      {
+        "text": "ADVERSARY ATTRIBUTION: Malware analysis confirms nation-state sponsorship. Code signing certificates match known adversary cyber unit. C2 infrastructure traced to adversary intelligence IP space. Primary threat actor APT-47 (VENOMOUS SPIDER) - 200-300 operators subordinate to military intelligence directorate.",
+        "tags": ["Cyber", "Intelligence", "Assessment"]
+      },
+      {
+        "text": "OFFENSIVE CAPABILITIES: Seven zero-day exploits deployed (Windows, Cisco, Oracle, VPN gateway, ICS, etc.). Custom malware - NIGHTHAWK (APT framework), PHANTOM (exfiltration), VIPER (reconnaissance), SLEDGEHAMMER (destructive, reserved), CHAMELEON (polymorphic). Effects achieved: disrupted military exercise coordination, degraded air defense radar 6 hours, denied satellite comms 4 hours, manipulated logistics database.",
+        "tags": ["Cyber", "Operations", "Weapons"]
+      },
+      {
+        "text": "DEFENSIVE OPERATIONS: Threat hunting across 247 DOD networks. Discovered 14 undetected intrusions, identified 3 new malware variants. Detected 1,247 intrusion attempts (99.4% blocked). 8 successful intrusions detected within 4 hours, contained/remediated. Average detection-to-containment: 2.3 hours. No confirmed data loss.",
+        "tags": ["Cyber", "Security", "Assessment"]
+      },
+      {
+        "text": "VULNERABILITY RESEARCH AND TOOLS: Discovered 12 new zero-days (7 weaponized, 5 disclosed to vendors). Completed SHADOWBLADE malware framework development. Enhanced PHANTOM exfiltration tool. Developed DEFENDER automated response platform and APT-47 detection analytics.",
+        "tags": ["Cyber", "Security"]
+      },
+      {
+        "text": "COORDINATION: Daily NSA coordination, shared network access, SIGINT cueing. USCYBERCOM operational control, coordinated with kinetic ops. CIA provided HUMINT on adversary cyber capabilities. Five Eyes intelligence sharing with UK, Australia, Canada, New Zealand. Presidential finding authorization, LOAC compliant, congressional notification completed.",
+        "tags": ["Cyber", "Intelligence", "Command and Control"]
+      },
+      {
+        "text": "CLASSIFICATION: TOP SECRET//SCI//NOFORN. Special Intelligence (SIGINT) and Talent Keyhole (overhead imagery). DIGITAL FORTRESS compartment. Access requires TS//SCI clearance, background investigation, compartment indoctrination, training, NDAs. ORCON - originator approval required. DECLASSIFY: 50 years or DNI authorization.",
+        "tags": ["Security", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Training Exercise After Action Review",
-    "text": "After action review of last week's training exercise. Overall assessment: satisfactory performance with areas for improvement. Strengths included communication procedures and medical response. Areas needing improvement: land navigation skills and equipment maintenance. Recommendations: additional training on map reading, increased emphasis on preventive maintenance checks. Next exercise scheduled for 15 April. All squad leaders must attend planning meeting on 1 April.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Training Section"
+    "source_unit": "Training Section",
+    "chunks": [
+      {
+        "text": "After action review of training exercise. Overall assessment: satisfactory with improvement areas. Strengths: communication procedures and medical response. Weaknesses: land navigation skills and equipment maintenance.",
+        "tags": ["Training", "Assessment", "Communications", "Medical"]
+      },
+      {
+        "text": "Recommendations: additional map reading training, increased preventive maintenance emphasis. Next exercise scheduled 15 April. Squad leaders planning meeting 1 April mandatory attendance.",
+        "tags": ["Training", "Planning"]
+      }
+    ]
   },
   {
     "title": "Dining Facility Menu",
-    "text": "Weekly menu for battalion dining facility. Monday: Chicken breast, rice, vegetables. Tuesday: Spaghetti with meat sauce, garlic bread, salad. Wednesday: Pork chops, mashed potatoes, green beans. Thursday: Tacos, rice, refried beans. Friday: Fish filet, french fries, coleslaw. Saturday: Breakfast all day. Sunday: BBQ ribs, corn on the cob, potato salad. Vegetarian options available daily.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Dining Facility"
+    "source_unit": "Dining Facility",
+    "chunks": [
+      {
+        "text": "Weekly battalion dining facility menu. Monday: Chicken breast, rice, vegetables. Tuesday: Spaghetti with meat sauce, garlic bread, salad. Wednesday: Pork chops, mashed potatoes, green beans. Thursday: Tacos, rice, refried beans. Friday: Fish filet, french fries, coleslaw. Saturday: Breakfast all day. Sunday: BBQ ribs, corn, potato salad. Vegetarian options available daily.",
+        "tags": ["Administrative"]
+      }
+    ]
   },
   {
     "title": "Supply Request Form",
-    "text": "Quarterly supply request for Echo Company. Requested items: 100 field notebooks, 50 cases MREs, 25 sleeping bags, 30 camelback water carriers, 15 folding shovels, cleaning supplies, office supplies. Justification: normal consumption and replacement of damaged equipment. Estimated cost: $8,500. Delivery requested by end of month. POC: 1SG Thompson, extension 4421.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Echo Company"
+    "source_unit": "Echo Company",
+    "chunks": [
+      {
+        "text": "Quarterly supply request for Echo Company. Items requested: 100 field notebooks, 50 cases MREs, 25 sleeping bags, 30 camelback water carriers, 15 folding shovels, cleaning supplies, office supplies. Justification: normal consumption and damaged equipment replacement. Estimated cost $8,500. Delivery requested by end of month. POC: 1SG Thompson ext 4421.",
+        "tags": ["Logistics", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Physical Fitness Test Results",
-    "text": "Battalion physical fitness test results for January cycle. Overall pass rate: 94%. Average scores: push-ups 68, sit-ups 72, 2-mile run 14:45. Ten soldiers require retest. Five soldiers flagged for fitness program. Company A had highest average score. Recommendations: increase focus on running endurance training. Next testing cycle scheduled for April.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "S1 Personnel"
+    "source_unit": "S1 Personnel",
+    "chunks": [
+      {
+        "text": "Battalion physical fitness test results for January cycle. Overall pass rate 94%. Average scores: push-ups 68, sit-ups 72, 2-mile run 14:45. Ten soldiers require retest. Five soldiers flagged for fitness program. Company A had highest average score.",
+        "tags": ["Training", "Personnel", "Assessment"]
+      },
+      {
+        "text": "Recommendations: increase focus on running endurance training. Next testing cycle scheduled for April.",
+        "tags": ["Training", "Planning"]
+      }
+    ]
   },
   {
     "title": "Ammunition Allocation Plan",
-    "text": "Monthly ammunition allocation for training operations. Company allocation: 5.56mm rounds (10,000), 7.62mm rounds (2,000), hand grenades (50 training), M203 rounds (100 practice). Distribution scheduled for 5 March. Range operations planned for 8-12 March. All units must submit expenditure reports within 48 hours of completion. Unused ammunition must be returned to ASP by 15 March.",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Ammunition Supply Point"
+    "source_unit": "Ammunition Supply Point",
+    "chunks": [
+      {
+        "text": "Monthly ammunition allocation for training. Company allocation: 5.56mm rounds (10,000), 7.62mm rounds (2,000), hand grenades (50 training), M203 rounds (100 practice). Distribution scheduled 5 March. Range operations 8-12 March.",
+        "tags": ["Weapons", "Logistics", "Training"]
+      },
+      {
+        "text": "All units must submit expenditure reports within 48 hours of completion. Unused ammunition returned to ASP by 15 March.",
+        "tags": ["Logistics", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Communications Security Update",
-    "text": "COMSEC update for all signal personnel. New encryption keys distributed effective 1 April. Old keys must be destroyed per regulation. Fill device checkout procedures reviewed. All operators must complete COMSEC refresher training by 15 March. Classified material handling procedures emphasized. Monthly COMSEC inspections will increase to ensure compliance. Any security incidents must be reported immediately to S2.",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Signal Battalion"
+    "source_unit": "Signal Battalion",
+    "chunks": [
+      {
+        "text": "COMSEC update for signal personnel. New encryption keys distributed effective 1 April. Old keys must be destroyed per regulation. Fill device checkout procedures reviewed. All operators complete COMSEC refresher training by 15 March.",
+        "tags": ["Communications", "Security", "Training"]
+      },
+      {
+        "text": "Classified material handling procedures emphasized. Monthly COMSEC inspections increasing. Security incidents must be reported immediately to S2.",
+        "tags": ["Security", "Communications"]
+      }
+    ]
   },
   {
     "title": "Forward Operating Base Layout",
-    "text": "Detailed layout and defensive plan for Forward Operating Base Phoenix. Perimeter consists of HESCO barriers with observation towers at positions 1, 3, 5, and 7. Entry control point at north gate with vehicle search area. Command post located grid NK 4521 8734. Communications array positioned for optimal coverage. Mortar pit emplacement southeast corner. Quick reaction force staging area centrally located. Underground bunker provides personnel protection from indirect fire. Defensive sectors assigned to each platoon.",
-    "classification": "SECRET",
-    "source_unit": "Engineer Battalion"
+    "source_unit": "Engineer Battalion",
+    "chunks": [
+      {
+        "text": "Forward Operating Base Phoenix layout and defensive plan. Perimeter: HESCO barriers with observation towers at positions 1, 3, 5, 7. Entry control point at north gate with vehicle search area. Command post located grid NK 4521 8734.",
+        "tags": ["Facilities", "Planning", "Defense"]
+      },
+      {
+        "text": "Communications array positioned for optimal coverage. Mortar pit southeast corner. Quick reaction force staging area centrally located. Underground bunker for personnel protection from indirect fire. Defensive sectors assigned to each platoon.",
+        "tags": ["Communications", "Defense", "Planning"]
+      }
+    ]
   },
   {
     "title": "Surveillance Target Analysis",
-    "text": "Analysis of surveillance targets in area of operations. Target Alpha: suspected weapons cache at grid NK 4123 7856, observed activity patterns indicate weekly visits by 3-5 individuals. Target Bravo: communications relay suspected at elevation point 542, technical signatures confirm active transmission. Target Charlie: supply route intersection, vehicle traffic analysis shows convoy pattern every 96 hours. ISR assets assigned for continuous monitoring. Strike recommendations developed for all targets pending approval.",
-    "classification": "SECRET",
-    "source_unit": "ISR Task Force"
+    "source_unit": "ISR Task Force",
+    "chunks": [
+      {
+        "text": "Surveillance targets in area of operations. Target Alpha: suspected weapons cache at grid NK 4123 7856, weekly visits by 3-5 individuals observed. Target Bravo: communications relay at elevation point 542, active transmission confirmed by technical signatures.",
+        "tags": ["Intelligence", "Surveillance", "Weapons", "Communications"]
+      },
+      {
+        "text": "Target Charlie: supply route intersection, convoy pattern every 96 hours identified through vehicle traffic analysis. ISR assets assigned for continuous monitoring. Strike recommendations developed pending approval.",
+        "tags": ["Intelligence", "Surveillance", "Assessment"]
+      }
+    ]
   },
   {
     "title": "Special Access Program Brief",
-    "text": "Special Access Program briefing restricted to read-in personnel only. Program involves development and deployment of advanced reconnaissance platforms with unprecedented capabilities. Technical specifications include multi-spectral imaging, signals collection, and real-time satellite relay. Platform designation remains classified. Operational testing demonstrated collection capabilities exceeding all previous systems. Integration with national intelligence architecture complete. Deployment authorized to priority theaters only. Access requires SCI clearance plus program-specific indoctrination.",
-    "classification": "TOP SECRET",
-    "source_unit": "Special Programs Office"
+    "source_unit": "Special Programs Office",
+    "chunks": [
+      {
+        "text": "Special Access Program briefing - read-in personnel only. Advanced reconnaissance platforms with unprecedented capabilities. Technical specs: multi-spectral imaging, signals collection, real-time satellite relay. Platform designation classified.",
+        "tags": ["Special Operations", "Intelligence", "Surveillance", "Security"]
+      },
+      {
+        "text": "Operational testing demonstrated collection capabilities exceeding all previous systems. National intelligence architecture integration complete. Deployment authorized to priority theaters only. Access requires SCI clearance plus program-specific indoctrination.",
+        "tags": ["Intelligence", "Security", "Assessment"]
+      }
+    ]
   },
   {
     "title": "Nuclear Surety Inspection Results",
-    "text": "Nuclear surety inspection results for weapons storage facility. All security protocols verified. Personnel reliability program compliance 100%. Two-person integrity maintained throughout all operations. Vault security systems tested and operational. Inventory control procedures exceed standards. Minor administrative findings corrected immediately. Overall rating: excellent. Next inspection scheduled for six months. Site maintains highest security clearance requirements. Access limited to personnel with appropriate clearances and need-to-know.",
-    "classification": "TOP SECRET",
-    "source_unit": "Munitions Security Force"
+    "source_unit": "Munitions Security Force",
+    "chunks": [
+      {
+        "text": "Nuclear surety inspection results for weapons storage facility. All security protocols verified. Personnel reliability program compliance 100%. Two-person integrity maintained throughout operations. Vault security systems tested and operational.",
+        "tags": ["Weapons", "Security", "Assessment"]
+      },
+      {
+        "text": "Inventory control procedures exceed standards. Minor administrative findings corrected immediately. Overall rating: excellent. Next inspection scheduled six months. Highest security clearance requirements maintained. Access limited to personnel with appropriate clearances and need-to-know.",
+        "tags": ["Security", "Administrative", "Assessment"]
+      }
+    ]
   },
   {
     "title": "Recreation Services Newsletter",
-    "text": "Monthly recreation services newsletter. Gym hours: Monday-Friday 0500-2200, weekends 0800-2000. Basketball tournament sign-ups close Friday. Softball season starts in April, team registration now open. Outdoor equipment rental includes camping gear, kayaks, and fishing equipment. Library has new book arrivals. Movie night every Thursday at 1900. Auto hobby shop available for vehicle maintenance. All MWR facilities free for military members.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Morale, Welfare, Recreation"
+    "source_unit": "Morale, Welfare, Recreation",
+    "chunks": [
+      {
+        "text": "Monthly recreation services newsletter. Gym hours: Monday-Friday 0500-2200, weekends 0800-2000. Basketball tournament sign-ups close Friday. Softball season starts April, team registration open. Outdoor equipment rental: camping gear, kayaks, fishing equipment. Library new arrivals. Movie night Thursday 1900. Auto hobby shop available. All MWR facilities free for military members.",
+        "tags": ["Administrative"]
+      }
+    ]
   },
   {
     "title": "Environmental Compliance Report",
-    "text": "Quarterly environmental compliance report for installation. All hazardous waste disposal procedures followed. Recycling program participation increased 15%. Water quality testing results within acceptable ranges. Air emissions monitoring shows compliance with EPA standards. Two minor spills reported and cleaned immediately. Wildlife habitat protection measures maintained. Sustainability initiatives on track. Next environmental audit scheduled for June.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Environmental Office"
+    "source_unit": "Environmental Office",
+    "chunks": [
+      {
+        "text": "Quarterly environmental compliance report for installation. Hazardous waste disposal procedures followed. Recycling program participation increased 15%. Water quality testing within acceptable ranges. Air emissions monitoring shows EPA compliance.",
+        "tags": ["Administrative", "Safety", "Assessment"]
+      },
+      {
+        "text": "Two minor spills reported and cleaned immediately. Wildlife habitat protection measures maintained. Sustainability initiatives on track. Next environmental audit scheduled June.",
+        "tags": ["Safety", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Logistics Convoy Security Brief",
-    "text": "Security brief for logistics convoy to Forward Operating Base Zulu. Convoy consists of 15 vehicles carrying supplies and equipment. Departure 0600 hours. Route designation: Route SWORD. Known threat areas: kilometers 25-30 and 45-50. Air cover available from 0600-1200. Quick reaction force on standby. Communications check every 30 minutes. Vehicle spacing 100 meters. Gunners maintain 360-degree security. IED threat assessed as moderate. All personnel briefed on reaction procedures.",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Logistics Battalion"
+    "source_unit": "Logistics Battalion",
+    "chunks": [
+      {
+        "text": "Security brief for logistics convoy to FOB Zulu. Convoy: 15 vehicles carrying supplies and equipment. Departure 0600 hours via Route SWORD. Known threat areas: kilometers 25-30 and 45-50. Air cover available 0600-1200. Quick reaction force on standby.",
+        "tags": ["Logistics", "Operations", "Security"]
+      },
+      {
+        "text": "Communications check every 30 minutes. Vehicle spacing 100 meters. Gunners maintain 360-degree security. IED threat assessed moderate. All personnel briefed on reaction procedures.",
+        "tags": ["Communications", "Security", "Vehicles"]
+      }
+    ]
   },
   {
     "title": "Signals Intelligence Analysis",
-    "text": "SIGINT analysis of enemy communications network. Traffic analysis reveals three primary command nodes operating on rotating frequencies. Voice intercepts provide tactical intelligence on planned movements. Direction finding confirms location of key transmitters. Patterns indicate operational security improvements by adversary. Cryptologic analysis suggests possible equipment upgrade. Correlation with HUMINT sources validates technical findings. Collection priorities updated. Dissemination restricted to authorized users. Information shared with coalition partners per established protocols.",
-    "classification": "SECRET",
-    "source_unit": "Military Intelligence Brigade"
+    "source_unit": "Military Intelligence Brigade",
+    "chunks": [
+      {
+        "text": "SIGINT analysis of enemy communications network. Traffic analysis reveals three primary command nodes on rotating frequencies. Voice intercepts provide tactical intelligence on planned movements. Direction finding confirms key transmitter locations.",
+        "tags": ["Intelligence", "Communications", "SIGINT"]
+      },
+      {
+        "text": "Patterns indicate adversary operational security improvements. Cryptologic analysis suggests possible equipment upgrade. HUMINT correlation validates technical findings. Collection priorities updated. Dissemination restricted to authorized users. Coalition partner sharing per established protocols.",
+        "tags": ["Intelligence", "Assessment", "Security"]
+      }
+    ]
   },
   {
     "title": "Joint Task Force Operations Order",
-    "text": "Operations order for Joint Task Force operations in restricted area. Mission includes multiple service components with air, land, and maritime elements. Objective: secure strategic infrastructure and establish area control. Phase 1: deployment and positioning. Phase 2: decisive operations. Phase 3: stabilization. Special operations forces conduct preliminary reconnaissance. Close air support missions pre-planned and on-call. Naval gunfire support available in coastal sectors. Rules of engagement classified SECRET. Deconfliction procedures critical. All movements coordinated through joint operations center.",
-    "classification": "SECRET",
-    "source_unit": "Joint Task Force HQ"
+    "source_unit": "Joint Task Force HQ",
+    "chunks": [
+      {
+        "text": "Joint Task Force operations order for restricted area. Multi-service components: air, land, maritime elements. Objective: secure strategic infrastructure and establish area control. Phase 1: deployment/positioning. Phase 2: decisive operations. Phase 3: stabilization.",
+        "tags": ["Operations", "Planning"]
+      },
+      {
+        "text": "Special operations forces conduct preliminary reconnaissance. Close air support pre-planned and on-call. Naval gunfire support available coastal sectors. Rules of engagement classified SECRET. Deconfliction procedures critical. All movements coordinated through joint operations center.",
+        "tags": ["Special Operations", "Operations", "Command and Control"]
+      }
+    ]
   },
   {
     "title": "Sensitive Compartmented Information Brief",
-    "text": "SCI briefing on intelligence collection activities. Multiple collection platforms provide comprehensive coverage of priority targets. HUMINT sources include officers in adversary military structure providing strategic-level intelligence. SIGINT collection from specialized platforms intercepts command communications. Geospatial intelligence from overhead imagery reveals facility construction and troop movements. All-source fusion analysis identifies patterns and predicts adversary intentions. Intelligence supports national decision-making at highest levels. Dissemination restricted to specifically indoctrinated personnel. Codeword access required.",
-    "classification": "TOP SECRET",
-    "source_unit": "National Intelligence Cell"
+    "source_unit": "National Intelligence Cell",
+    "chunks": [
+      {
+        "text": "SCI briefing on intelligence collection activities. Multiple collection platforms provide comprehensive priority target coverage. HUMINT sources include adversary military officers providing strategic intelligence. SIGINT collection from specialized platforms intercepts command communications.",
+        "tags": ["Intelligence", "Security", "SIGINT"]
+      },
+      {
+        "text": "Geospatial intelligence from overhead imagery reveals facility construction and troop movements. All-source fusion analysis identifies patterns and predicts adversary intentions. Intelligence supports national decision-making at highest levels. Dissemination restricted to indoctrinated personnel. Codeword access required.",
+        "tags": ["Intelligence", "Surveillance", "Security"]
+      }
+    ]
   },
   {
     "title": "Leave and Pass Procedures",
-    "text": "Updated guidance on leave and pass procedures. Regular leave requests must be submitted 30 days in advance. Pass authority for local area: company commander. Leave authority: battalion commander. Emergency leave processed immediately upon notification. All personnel on leave or pass must maintain phone contact. Recall procedures reviewed with all supervisors. Leave and earnings statements available online. Questions directed to S1 personnel office during duty hours.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Personnel Office"
+    "source_unit": "Personnel Office",
+    "chunks": [
+      {
+        "text": "Updated leave and pass procedures guidance. Regular leave requests submitted 30 days in advance. Pass authority for local area: company commander. Leave authority: battalion commander. Emergency leave processed immediately upon notification.",
+        "tags": ["Personnel", "Administrative"]
+      },
+      {
+        "text": "All personnel on leave/pass must maintain phone contact. Recall procedures reviewed with supervisors. Leave and earnings statements available online. Questions directed to S1 personnel office during duty hours.",
+        "tags": ["Personnel", "Administrative"]
+      }
+    ]
   },
   {
     "title": "Medical Readiness Report",
-    "text": "Battalion medical readiness assessment. Immunization compliance: 97%. Dental readiness: 92%. Medical equipment on-hand and serviceable. Combat lifesaver training current for 85% of unit. Medical supplies stocked at 95% of authorization. Three personnel on medical profile requiring duty restrictions. Deployment medical screening scheduled for March. All medics maintaining required certifications. Medical evacuation procedures rehearsed monthly.",
-    "classification": "CONFIDENTIAL",
-    "source_unit": "Battalion Aid Station"
+    "source_unit": "Battalion Aid Station",
+    "chunks": [
+      {
+        "text": "Battalion medical readiness assessment. Immunization compliance 97%. Dental readiness 92%. Medical equipment on-hand and serviceable. Combat lifesaver training current for 85% of unit. Medical supplies stocked at 95% authorization.",
+        "tags": ["Medical", "Assessment", "Training"]
+      },
+      {
+        "text": "Three personnel on medical profile with duty restrictions. Deployment medical screening scheduled March. All medics maintaining required certifications. Medical evacuation procedures rehearsed monthly.",
+        "tags": ["Medical", "Personnel", "Training"]
+      }
+    ]
   },
   {
     "title": "Building Access Badge Procedures",
-    "text": "New building access badge procedures effective 1 March. All personnel must wear badges visibly above the waist. Lost badges must be reported immediately to security office. Replacement fee: $15. Visitors require escort at all times. Contractor badges valid for duration of contract only. Badge readers installed at all controlled entry points. Random badge checks conducted by security personnel. Violations may result in access revocation.",
-    "classification": "UNCLASSIFIED",
-    "source_unit": "Security Office"
+    "source_unit": "Security Office",
+    "chunks": [
+      {
+        "text": "New building access badge procedures effective 1 March. All personnel wear badges visibly above waist. Lost badges reported immediately to security office. Replacement fee $15. Visitors require escort at all times. Contractor badges valid for contract duration only.",
+        "tags": ["Security", "Administrative"]
+      },
+      {
+        "text": "Badge readers installed at all controlled entry points. Random badge checks conducted by security personnel. Violations may result in access revocation.",
+        "tags": ["Security", "Administrative"]
+      }
+    ]
   }
 ]
