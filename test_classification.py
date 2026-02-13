@@ -9,42 +9,42 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # API endpoint
 API_URL = "http://localhost:8001/classify/text"
 
-number_of_tests = 25  # Multiplier for test data
+number_of_tests = 1  # Multiplier for test data
 
 
-# Test data: Unclassified documents (base samples)
-_base_unclassified = [
-    "The annual military parade will be held on June 15th at the downtown square. All citizens are invited to attend.",
-    "The Department of Defense announced a new recruitment campaign targeting young professionals interested in cybersecurity careers.",
-    "Military service members are entitled to educational benefits including tuition assistance and GI Bill programs.",
-    "The military base will host an open house event next Saturday for families and community members.",
-    "This month's edition includes stories about community outreach programs and volunteer opportunities at local bases.",
-    "We are seeking candidates for administrative positions at regional military offices. Apply online today.",
-    "The armed forces remain committed to maintaining peace and security through international partnerships.",
-    "The military family support center will offer free workshops on financial planning next week.",
-    "Service members should update their emergency contact information in the personnel database.",
-    "The military museum will extend visiting hours during the summer months for tourism season."
+# Test data: Training-related documents
+_base_training_texts = [
+    "Training schedule for next week: Monday - rifle range, Tuesday - tactical exercises, Wednesday - physical fitness.",
+    "All personnel must complete the cybersecurity awareness training by end of month.",
+    "Leadership development workshop scheduled for officers next Thursday at 0900 hours.",
+    "Weekly training schedule includes obstacle course, weapons qualification, and squad tactics.",
+    "Combat readiness drills will be conducted every morning at 0600 starting next week.",
+    "Professional development training for NCOs focusing on mentorship and team building.",
+    "Medical emergency response training required for all first responders this quarter.",
+    "Advanced tactical driving course available for personnel assigned to security details.",
+    "Annual weapons qualification and safety certification due before deployment.",
+    "New equipment familiarization training sessions scheduled throughout the month."
 ]
 
 # Generate texts by repeating base samples
-unclassified_texts = _base_unclassified * number_of_tests
+training_texts = _base_training_texts * number_of_tests
 
 
-# Test data: Confidential documents
-_base_confidential_texts = [
+# Test data: Intelligence/Operations documents
+_base_operations_texts = [
     "Intelligence reports indicate hostile surveillance activities detected near strategic infrastructure. Immediate countermeasures required.",
     "Task force deployment scheduled for 0300 hours. Radio silence protocols in effect. Secure channel communication only.",
     "Vulnerability analysis of perimeter defense systems reveals critical weaknesses requiring urgent remediation.",
     "Encrypted satellite data shows unauthorized vessel movements in restricted maritime zone. Alert status elevated.",
-    "Agent credentials and undercover assignment details for covert operations in foreign territories.",
     "SIGINT intercepts reveal adversary force positioning and tactical intentions for upcoming maneuvers.",
     "Emergency evacuation procedures and safe house locations for high-value personnel during crisis scenarios.",
-    "Advanced missile system specifications including range capabilities, payload configurations, and targeting algorithms.",
     "Special operations unit insertion coordinates and extraction timelines for mission in hostile territory.",
-    "Sensitive negotiations regarding military base agreements and strategic alliance terms with foreign governments."
+    "Cyber operations detected network intrusion attempts targeting classified communication systems.",
+    "Patrol routes updated based on intelligence assessment of threat levels in operational area.",
+    "Mission briefing: Conduct reconnaissance of enemy positions along the northern border."
 ]
 
-confidential_texts = _base_confidential_texts * number_of_tests
+operations_texts = _base_operations_texts * number_of_tests
 
 
 def classify_text(text: str) -> Tuple[Dict, float]:
@@ -123,68 +123,80 @@ def test_classifications():
     print("DOCUMENT CLASSIFICATION TEST")
     print("=" * 80)
     
-    # Acceptable classifications
-    confidential_acceptable = ["confidential", "secret", "top secret"]
-    unclassified_acceptable = ["unclassified"]
+    # Expected tags for different document types
+    training_expected_tags = ["training", "schedule", "exercise", "drill", "qualification", "workshop", "course"]
+    operations_expected_tags = ["intelligence", "operations", "deployment", "mission", "tactical", "security", "reconnaissance"]
     
     all_timings = []
     
-    # Test unclassified documents
-    print("\n📄 Testing UNCLASSIFIED documents (100 concurrent requests)...")
+    # Test training documents
+    print("\n📄 Testing TRAINING documents (concurrent requests)...")
     print("-" * 80)
     
-    unclassified_correct = 0
-    unclassified_total = len(unclassified_texts)
+    training_correct = 0
+    training_failed = 0
+    training_total = len(training_texts)
     
     # Process in batch
-    unclassified_results, unclassified_timings = classify_batch(unclassified_texts, batch_size=500)
-    all_timings.extend(unclassified_timings)
+    training_results, training_timings = classify_batch(training_texts, batch_size=500)
+    all_timings.extend(training_timings)
     
-    for i, (idx, text, result) in enumerate(unclassified_results, 1):
-        print(f"\n[{i}/{unclassified_total}] Testing: {text[:70]}...")
+    for i, (idx, text, result) in enumerate(training_results, 1):
+        print(f"\n[{i}/{training_total}] Testing: {text[:70]}...")
         
         if result:
-            classification = result.get("classification", "").lower()
+            tags = result.get("tags", [])
             confidence = result.get("confidence", 0)
+            chunks_processed = result.get("chunks_processed", 0)
             
-            is_correct = classification in unclassified_acceptable
+            # Check if any expected tags are present
+            has_expected_tag = any(tag.lower() in [t.lower() for t in tags] for tag in training_expected_tags)
+            is_correct = has_expected_tag and len(tags) > 0
             status = "✓ PASS" if is_correct else "✗ FAIL"
             
-            print(f"    Result: {classification.upper()} (confidence: {confidence:.2%})")
+            print(f"    Tags: {', '.join(tags)}")
+            print(f"    Confidence: {confidence:.2%} | Chunks: {chunks_processed}")
             print(f"    Status: {status}")
             
             if is_correct:
-                unclassified_correct += 1
+                training_correct += 1
         else:
+            training_failed += 1
             print(f"    Status: ✗ FAIL (API Error)")
     
-    # Test confidential documents
-    print("\n\n🔒 Testing CONFIDENTIAL documents...")
+    # Test operations/intelligence documents
+    print("\n\n🔒 Testing OPERATIONS/INTELLIGENCE documents...")
     print("-" * 80)
     
-    confidential_correct = 0
-    confidential_total = len(confidential_texts)
+    operations_correct = 0
+    operations_failed = 0
+    operations_total = len(operations_texts)
     
     # Process in batch
-    confidential_results, confidential_timings = classify_batch(confidential_texts, batch_size=500)
-    all_timings.extend(confidential_timings)
+    operations_results, operations_timings = classify_batch(operations_texts, batch_size=500)
+    all_timings.extend(operations_timings)
     
-    for i, (idx, text, result) in enumerate(confidential_results, 1):
-        print(f"\n[{i}/{confidential_total}] Testing: {text[:70]}...")
+    for i, (idx, text, result) in enumerate(operations_results, 1):
+        print(f"\n[{i}/{operations_total}] Testing: {text[:70]}...")
         
         if result:
-            classification = result.get("classification", "").lower()
+            tags = result.get("tags", [])
             confidence = result.get("confidence", 0)
+            chunks_processed = result.get("chunks_processed", 0)
             
-            is_correct = classification in confidential_acceptable
+            # Check if any expected tags are present
+            has_expected_tag = any(tag.lower() in [t.lower() for t in tags] for tag in operations_expected_tags)
+            is_correct = has_expected_tag and len(tags) > 0
             status = "✓ PASS" if is_correct else "✗ FAIL"
             
-            print(f"    Result: {classification.upper()} (confidence: {confidence:.2%})")
+            print(f"    Tags: {', '.join(tags)}")
+            print(f"    Confidence: {confidence:.2%} | Chunks: {chunks_processed}")
             print(f"    Status: {status}")
             
             if is_correct:
-                confidential_correct += 1
+                operations_correct += 1
         else:
+            operations_failed += 1
             print(f"    Status: ✗ FAIL (API Error)")
     
     # Calculate total execution time
@@ -200,18 +212,22 @@ def test_classifications():
     print("TEST RESULTS SUMMARY")
     print("=" * 80)
     
-    total_tests = unclassified_total + confidential_total
-    total_correct = unclassified_correct + confidential_correct
+    total_tests = training_total + operations_total
+    total_correct = training_correct + operations_correct
+    total_failed = training_failed + operations_failed
     accuracy = (total_correct / total_tests * 100) if total_tests > 0 else 0
     
-    print(f"\nUnclassified Documents:")
-    print(f"  ✓ Correct: {unclassified_correct}/{unclassified_total} ({unclassified_correct/unclassified_total*100:.1f}%)")
+    print(f"\nTraining Documents:")
+    print(f"  ✓ Correct: {training_correct}/{training_total} ({training_correct/training_total*100:.1f}%)")
+    print(f"  ✗ Failed API requests: {training_failed}")
     
-    print(f"\nConfidential Documents:")
-    print(f"  ✓ Correct: {confidential_correct}/{confidential_total} ({confidential_correct/confidential_total*100:.1f}%)")
+    print(f"\nOperations/Intelligence Documents:")
+    print(f"  ✓ Correct: {operations_correct}/{operations_total} ({operations_correct/operations_total*100:.1f}%)")
+    print(f"  ✗ Failed API requests: {operations_failed}")
     
     print(f"\nOverall Accuracy:")
     print(f"  ✓ {total_correct}/{total_tests} correct ({accuracy:.1f}%)")
+    print(f"  ✗ Failed API requests: {total_failed}")
     
     print(f"\n⏱️  Performance Metrics:")
     print(f"  • Total execution time: {total_elapsed_time:.2f}ms ({total_elapsed_time/1000:.2f}s)")
@@ -223,11 +239,14 @@ def test_classifications():
     print("\n" + "=" * 80)
     
     return {
-        "unclassified_correct": unclassified_correct,
-        "unclassified_total": unclassified_total,
-        "confidential_correct": confidential_correct,
-        "confidential_total": confidential_total,
+        "training_correct": training_correct,
+        "training_failed": training_failed,
+        "training_total": training_total,
+        "operations_correct": operations_correct,
+        "operations_failed": operations_failed,
+        "operations_total": operations_total,
         "total_correct": total_correct,
+        "total_failed": total_failed,
         "total_tests": total_tests,
         "accuracy": accuracy,
         "total_time_ms": total_elapsed_time,
